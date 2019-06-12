@@ -11,10 +11,10 @@ class IBlockFactory(metaclass=ABCMeta):
 class GenSin(IBlockFactory):
     """The GenSin Concrete Class which implements the IBlock interface"""
 
-    def __init__(self):
-        self._magnitude = 5
-        self._frequency = 1
-        self._phase = 0
+    def __init__(self,data):
+        self._magnitude = data[1]
+        self._frequency = data[2]
+        self._phase = data[3]
 
     def parameters(self):
         return {"magnitude": self._magnitude, "frequency": self._frequency, "phase": self._phase}
@@ -23,14 +23,14 @@ class GenSin(IBlockFactory):
 class CScope(IBlockFactory):
     """The CScope Concrete Class which implements the IBlock interface"""
 
-    def __init__(self):
-        self._colorvector = 60
-        self._ymin = 60
-        self._ymax = 60
-        self._refresh_period = 60
-        self._buffer_size = 60
-        self._accept_herited_events = 60
-        self._scope_name = 60
+    def __init__(self,data):
+        self._colorvector = data[1]
+        self._ymin = data[2]
+        self._ymax = data[3]
+        self._refresh_period = data[4]
+        self._buffer_size = data[5]
+        self._accept_herited_events = data[6]
+        self._scope_name = data[7]
 
 
     def parameters(self):
@@ -40,9 +40,9 @@ class CScope(IBlockFactory):
 class CSuper(IBlockFactory):
     """The CSuper Concrete Class which implements the IBlock interface"""
 
-    def __init__(self):
-        self._period = 10
-        self._intime = 10
+    def __init__(self,data):
+        self._period = data[1]
+        self._intime = data[2]
 
     def parameters(self):
         return {"Period": self._period, "Initialisation Time": self._intime}
@@ -53,15 +53,15 @@ class BlockFactory:
     """Tha Factory Class"""
 
     @staticmethod
-    def get_block(block):
+    def get_block(data):
         """A static method to get a block"""
         try:
-            if block == "GenSin":
-                return GenSin()
-            if block == "CScope":
-                return CScope()
-            if block == "CSuper":
-                return CSuper()
+            if data[0] == "GenSin":
+                return GenSin(data)
+            if data[0] == "CScope":
+                return CScope(data)
+            if data[0] == "CSuper":
+                return CSuper(data)
             raise AssertionError("Block Not Found")
         except AssertionError as _e:
             print(_e)
@@ -69,5 +69,15 @@ class BlockFactory:
 
 
 if __name__ == "__main__":
-    BLOCK_FACTORY = BlockFactory().get_block("GenSin")
-print(f"{BLOCK_FACTORY.__class__} : {BLOCK_FACTORY.parameters()}")
+    inlist1=["GenSin",5,1,0]
+    inlist2=["CScope",[1,3,5,7,9,11,13,15],-15,15,30,20,0,None]
+    inlist3=["CSuper",0.1,0.1]
+
+    BLOCK_FACTORY1 = BlockFactory().get_block(inlist1)
+    BLOCK_FACTORY2 = BlockFactory().get_block(inlist2)
+    BLOCK_FACTORY3 = BlockFactory().get_block(inlist3)
+print(f"{BLOCK_FACTORY1.__class__} : {BLOCK_FACTORY1.parameters()}")
+print(f"{BLOCK_FACTORY2.__class__} : {BLOCK_FACTORY2.parameters()}")
+print(f"{BLOCK_FACTORY3.__class__} : {BLOCK_FACTORY3.parameters()}")
+
+
