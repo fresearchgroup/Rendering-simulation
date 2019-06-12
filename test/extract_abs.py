@@ -1,21 +1,15 @@
 import xml.etree.ElementTree as ET
 import os
-from pylatex import Document,Section,Subsection,Tabular,TikZ,TikZCoordinate,TikZNode,TikZDraw,TikZUserPath,TikZOptions
+from pylatex import Document,Section,Subsection,Tabular,TikZ,TikZCoordinate,TikZNode,TikZDraw,TikZUserPath,TikZOptions,Figure
 
 tree = ET.parse('abs.xml')
 root = tree.getroot()
 if __name__ == '__main__':
-    image_filename = os.path.join(os.path.dirname(__file__))
-    geometry_options = {"tmargin": "1cm", "lmargin": "1cm"}
-    doc = Document(geometry_options=geometry_options)
-    with doc.create(TikZ()) as pic:
+    #image_filename = os.path.join(os.path.dirname(__file__),'/home/kyoya2212/fossee_2019/Rendering-simulation/images/ABS_VALUE.png')
+     image_filename = os.path.join('/home/kyoya2212/fossee_2019/Rendering-simulation/images/','ABS_VALUE.png')
+     geometry_options = {"tmargin": "1cm", "lmargin": "1cm"}
+     doc = Document(geometry_options=geometry_options)
 
-        box = TikZNode(text='Abs Val',
-                       handle='rectangle',
-
-                       options=TikZOptions('draw'
-                                           ,))
-        pic.append(box)
 
 
 listA = []
@@ -78,4 +72,8 @@ with doc.create(Section('Basic info')):
         table.add_hline()
         table.add_row([listC[8], listD[8]])
         table.add_hline()
-doc.generate_pdf('example1', clean_tex=False)
+with doc.create(Section('Absolute Value')):
+    with doc.create(Figure(position='h!')) as abs_pic:
+        abs_pic.add_image(image_filename, width='120px')
+        abs_pic.add_caption('Absolute Value Block')
+doc.generate_pdf('example_abs', clean_tex=False)
