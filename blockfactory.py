@@ -1,4 +1,5 @@
 from abc import ABCMeta, abstractstaticmethod
+import xml.etree.ElementTree as ET
 
 
 class IBlockFactory(metaclass=ABCMeta):
@@ -10,39 +11,73 @@ class IBlockFactory(metaclass=ABCMeta):
 
 class GenSin(IBlockFactory):
     """The GenSin Concrete Class which implements the IBlock interface"""
+    data=[]
+    def process_data(self,block_root):
 
-    def __init__(self,data):
-        self._magnitude = data[1]
-        self._frequency = data[2]
-        self._phase = data[3]
+        for y in block_root.findall("./ScilabString/data"):
+              self.data.append(y.get('value'))
+
+
+    def __init__(self,block_root):
+        self.process_data(block_root)
+        self._magnitude = self.data[0]
+        self._frequency =self.data[1]
+        self._phase = self.data[2]
 
     def parameters(self):
         return {"magnitude": self._magnitude, "frequency": self._frequency, "phase": self._phase}
 
 
+
+
+
+
+
+
+
+
+
+
 class CScope(IBlockFactory):
     """The CScope Concrete Class which implements the IBlock interface"""
 
-    def __init__(self,data):
-        self._colorvector = data[1]
-        self._ymin = data[2]
-        self._ymax = data[3]
-        self._refresh_period = data[4]
-        self._buffer_size = data[5]
-        self._accept_herited_events = data[6]
-        self._scope_name = data[7]
+    data=[]
+    def process_data(self,block_root):
+        for y in block_root.findall("./ScilabString/data"):
+              self.data.append(y.get('value'))
+
+
+    def __init__(self,block_root):
+        self.process_data(block_root)
+        self._colorvector = self.data[0]
+        self._output_window_number= self.data[1]
+        self._output_window_position=self.data[2]
+        self._output_window_sizes= self.data[3]
+        self._ymin = self.data[4]
+        self._ymax = self.data[5]
+        self._refresh_period = self.data[6]
+        self._buffer_size = self.data[7]
+        self._accept_herited_events = self.data[8]
+        self._scope_name = self.data[9]
 
 
     def parameters(self):
-        return {"Color or mark vector:" :self._colorvector, "Ymin": self._ymin, "Ymax": self._ymax,"Refresh period" : self._refresh_period ,"Buffer Size": self._buffer_size,"Accept herited events": self._accept_herited_events,"Name of Scope": self._scope_name}
+        return {"Color or mark vector:" :self._colorvector,"Output window number":self._output_window_number,"Output window position":self._output_window_position,"Output window sizes":self._output_window_sizes, "Ymin": self._ymin, "Ymax": self._ymax,"Refresh period" : self._refresh_period ,"Buffer Size": self._buffer_size,"Accept herited events": self._accept_herited_events,"Name of Scope": self._scope_name}
 
 
 class CSuper(IBlockFactory):
     """The CSuper Concrete Class which implements the IBlock interface"""
 
-    def __init__(self,data):
-        self._period = data[1]
-        self._intime = data[2]
+    data=[]
+    def process_data(self,block_root):
+
+        for y in block_root.findall("./SuperBlockDiagram/mxGraphModel/root/BasicBlock/ScilabString/data"):
+              self.data.append(y.get('value'))
+
+    def __init__(self,block_root):
+        self.process_data(block_root)
+        self._period = self.data[0]
+        self._intime = self.data[1]
 
     def parameters(self):
         return {"Period": self._period, "Initialisation Time": self._intime}
@@ -53,15 +88,18 @@ class BlockFactory:
     """Tha Factory Class"""
 
     @staticmethod
-    def get_block(data):
+    def get_block(funcname,block_root):
         """A static method to get a block"""
         try:
-            if data[0] == "GenSin":
-                return GenSin(data)
-            if data[0] == "CScope":
-                return CScope(data)
-            if data[0] == "CSuper":
-                return CSuper(data)
+            if funcname == "GENSIN_f":
+                return GenSin(block_root)
+
+            if funcname == "CSCOPE":
+                return CScope(block_root)
+
+            if funcname == "CLOCK_c":
+                return CSuper(block_root)
+
             raise AssertionError("Block Not Found")
         except AssertionError as _e:
             print(_e)
@@ -69,15 +107,17 @@ class BlockFactory:
 
 
 if __name__ == "__main__":
-    inlist1=["GenSin",5,1,0]
-    inlist2=["CScope",[1,3,5,7,9,11,13,15],-15,15,30,20,0,None]
-    inlist3=["CSuper",0.1,0.1]
 
-    BLOCK_FACTORY1 = BlockFactory().get_block(inlist1)
-    BLOCK_FACTORY2 = BlockFactory().get_block(inlist2)
-    BLOCK_FACTORY3 = BlockFactory().get_block(inlist3)
-print(f"{BLOCK_FACTORY1.__class__} : {BLOCK_FACTORY1.parameters()}")
-print(f"{BLOCK_FACTORY2.__class__} : {BLOCK_FACTORY2.parameters()}")
-print(f"{BLOCK_FACTORY3.__class__} : {BLOCK_FACTORY3.parameters()}")
+    tree = ET.parse('sine.xml')
+    root = tree.getroot()
+    counter=0
+    for x in root.findall('./mxGraphModel/root/'):
+        if(x.tag == "BasicBlock"):
+           BLOCK_FACTORY= BlockFactory().get_block(x.get('interfaceFunctionName'),x)
+           print(f"{BLOCK_FACTORY.__class__}: {BLOCK_FACTORY.parameters()}")
+
+
+
+
 
 
