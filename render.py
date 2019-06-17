@@ -1,5 +1,6 @@
 import xml.etree.ElementTree as ET
 from pylatex import Document , Section, Subsection, Tabular
+
 from models import GenSin, CScope ,CSuper
 
 
