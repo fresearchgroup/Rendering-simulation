@@ -1,12 +1,9 @@
 from abc import ABCMeta, abstractstaticmethod
 import xml.etree.ElementTree as ET
-<<<<<<< HEAD
 
 output_list=[]
-=======
-output_list=[]
 
->>>>>>> decd253b6c0d7f1fb51ee2022a8437d747f15491
+
 class IBlockFactory(metaclass=ABCMeta):
     """The Block Interface"""
     @abstractstaticmethod
@@ -31,11 +28,9 @@ class GenSin(IBlockFactory):
         self._phase = self.data[2]
 
     def parameters(self):
-<<<<<<< HEAD
+
         return {"Function Name:":self._funcname,"magnitude:": self._magnitude, "frequency:": self._frequency, "phase:": self._phase}
-=======
-        return {"Function Name":self._funcname,"magnitude": self._magnitude, "frequency": self._frequency, "phase": self._phase}
->>>>>>> decd253b6c0d7f1fb51ee2022a8437d747f15491
+
 
 class CScope(IBlockFactory):
     """The CScope Concrete Class which implements the IBlock interface"""
@@ -62,11 +57,9 @@ class CScope(IBlockFactory):
 
 
     def parameters(self):
-<<<<<<< HEAD
-        return {"Function Name:":self._funcname,"Color or mark vector:" :self._colorvector,"Output window number:":self._output_window_number,"Output window position:":self._output_window_position,"Output window sizes:":self._output_window_sizes, "Ymin:": self._ymin, "Ymax:": self._ymax,"Refresh period:" : self._refresh_period ,"Buffer Size": self._buffer_size,"Accept herited events:": self._accept_herited_events,"Name of Scope:": self._scope_name}
-=======
-        return {"Function Name":self._funcname,"Color or mark vector:" :self._colorvector,"Output window number":self._output_window_number,"Output window position":self._output_window_position,"Output window sizes":self._output_window_sizes, "Ymin": self._ymin, "Ymax": self._ymax,"Refresh period" : self._refresh_period ,"Buffer Size": self._buffer_size,"Accept herited events": self._accept_herited_events,"Name of Scope": self._scope_name}
->>>>>>> decd253b6c0d7f1fb51ee2022a8437d747f15491
+
+        return {"Function Name:":self._funcname,"Color or mark vector:" :self._colorvector,"Output window number:":self._output_window_number,"Output window position:":self._output_window_position,"Output window sizes:":self._output_window_sizes, "Ymin:": self._ymin, "Ymax:": self._ymax,"Refresh period:" : self._refresh_period ,"Buffer Size:": self._buffer_size,"Accept herited events:": self._accept_herited_events,"Name of Scope:": self._scope_name}
+
 
 
 class CSuper(IBlockFactory):
@@ -85,11 +78,9 @@ class CSuper(IBlockFactory):
         self._intime = self.data[1]
 
     def parameters(self):
-<<<<<<< HEAD
+
         return {"Function Name:":self._funcname,"Period:": self._period, "Initialisation Time:": self._intime}
-=======
-        return {"Function Name":self._funcname,"Period": self._period, "Initialisation Time": self._intime}
->>>>>>> decd253b6c0d7f1fb51ee2022a8437d747f15491
+
 
 
 
@@ -115,26 +106,17 @@ class BlockFactory:
         return None
 
 
-<<<<<<< HEAD
+
 def output(xml_filepath):
 
     tree = ET.parse(xml_filepath)
-=======
-def output():
 
-    tree = ET.parse('sine.xml')
->>>>>>> decd253b6c0d7f1fb51ee2022a8437d747f15491
     root = tree.getroot()
     for x in root.findall('./mxGraphModel/root/'):
         if(x.tag == "BasicBlock"):
            BLOCK_FACTORY= BlockFactory().get_block(x.get('interfaceFunctionName'),x)
-<<<<<<< HEAD
-
            output_list.append(BLOCK_FACTORY)
     return output_list
-=======
-           #print(f"{BLOCK_FACTORY.__class__}: {BLOCK_FACTORY.parameters()}")
-           output_list.append(BLOCK_FACTORY)
 
 
 
@@ -142,4 +124,5 @@ def output():
 
 
 
->>>>>>> decd253b6c0d7f1fb51ee2022a8437d747f15491
+
+
