@@ -13,11 +13,11 @@ class IBlockFactory(metaclass=ABCMeta):
 
 class GenSin(IBlockFactory):
     """The GenSin Concrete Class which implements the IBlock interface"""
-    data=[]
     def process_data(self,block_root):
-
+        self.data=[]
         for y in block_root.findall("./ScilabString/data"):
               self.data.append(y.get('value'))
+
 
 
     def __init__(self,block_root):
@@ -35,8 +35,8 @@ class GenSin(IBlockFactory):
 class CScope(IBlockFactory):
     """The CScope Concrete Class which implements the IBlock interface"""
 
-    data=[]
     def process_data(self,block_root):
+        self.data=[]
         for y in block_root.findall("./ScilabString/data"):
               self.data.append(y.get('value'))
 
@@ -65,9 +65,8 @@ class CScope(IBlockFactory):
 class CSuper(IBlockFactory):
     """The CSuper Concrete Class which implements the IBlock interface"""
 
-    data=[]
     def process_data(self,block_root):
-
+        self.data=[]
         for y in block_root.findall("./SuperBlockDiagram/mxGraphModel/root/BasicBlock/ScilabString/data"):
               self.data.append(y.get('value'))
 
@@ -112,11 +111,13 @@ def output(xml_filepath):
     tree = ET.parse(xml_filepath)
 
     root = tree.getroot()
+
     for x in root.findall('./mxGraphModel/root/'):
         if(x.tag == "BasicBlock"):
            BLOCK_FACTORY= BlockFactory().get_block(x.get('interfaceFunctionName'),x)
            output_list.append(BLOCK_FACTORY)
     return output_list
+
 
 
 
