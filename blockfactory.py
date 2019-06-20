@@ -11,6 +11,21 @@ class IBlockFactory(metaclass=ABCMeta):
         """A static interface method"""
 
 
+
+class Context(IBlockFactory):
+    def process_data(self,block_root):
+        self.data=[]
+        for y in block_root.findall("./add"):
+              self.data.append(y.get('value'))
+
+    def __init__(self,block_root):
+        self.process_data(block_root)
+        self._variables=self.data
+
+    def parameters(self):
+        return self._variables
+
+
 class GenSin(IBlockFactory):
     """The GenSin Concrete Class which implements the IBlock interface"""
     def process_data(self,block_root):
@@ -93,6 +108,9 @@ class BlockFactory:
             if funcname == "GENSIN_f":
                 return GenSin(block_root)
 
+            if funcname == "Array":
+                return Context(block_root)
+
             if funcname == "CSCOPE":
                 return CScope(block_root)
 
@@ -111,17 +129,23 @@ def output(xml_filepath):
     tree = ET.parse(xml_filepath)
 
     root = tree.getroot()
+    for child in root:
+        if(child.tag == "Array"):
+           BLOCK_FACTORY= BlockFactory().get_block(child.tag,child)
+           output_list.append(BLOCK_FACTORY)
 
     for x in root.findall('./mxGraphModel/root/'):
         if(x.tag == "BasicBlock"):
            BLOCK_FACTORY= BlockFactory().get_block(x.get('interfaceFunctionName'),x)
            output_list.append(BLOCK_FACTORY)
+
     return output_list
 
+output('Inverted_pendulum.xcos')
 
-
-
-
+for i in output_list:
+    if i is not None:
+        print(i.parameters())
 
 
 
