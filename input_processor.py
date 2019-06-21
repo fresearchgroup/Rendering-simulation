@@ -1,5 +1,6 @@
 import os
 import sys
+import subprocess
 from core.generators import GENSIN_f, CSCOPE, CLOCK_c
 from pylatex import Document, Section, Itemize, Enumerate, Description, \
     Command,Document,TikZ,TikZCoordinate,TikZNode,TikZDraw,TikZUserPath,TikZOptions,Figure
@@ -7,8 +8,11 @@ import xml.etree.ElementTree as ET
 
 def process_file(xml_filepath):
     output_list=[]
+    path_to_upgraded_file=xml_filepath.split('/')[-1].split('.')[0]+'_updated.xcos'
+    command='scs_m = xcosDiagramToScilab('+'\''+xml_filepath+'\''+');xcosDiagramToScilab("'+path_to_upgraded_file+'", scs_m); quit();'
+    subprocess.call(['scilab-adv-cli', '-e',command])
     #reading the xml file
-    tree = ET.parse(xml_filepath)
+    tree = ET.parse(path_to_upgraded_file)
     root = tree.getroot()
 
     #generate objects one by one store it in a output list
