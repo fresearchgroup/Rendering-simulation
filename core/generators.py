@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from .blocks import GenSin, CScope, CSuper
+from .blocks import *
 
 class BlockGenerator(ABC):
 
@@ -35,3 +35,31 @@ class CLOCK_c(BlockGenerator):
 
     def _generate(self):
         return CSuper(self.data)
+
+class CLSS_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+    def _generate(self):
+        return Csslti(self.data)
+
+class CLOCK_f(BlockGenerator):
+    ScilabString = "./SuperBlockDiagram/mxGraphModel/root/BasicBlock/ScilabString/data"
+
+    def _generate(self):
+        return CSuper(self.data)
+class CEVENTSCOPE(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+    def _generate(self):
+        return Cevscpe(self.data)
+
+class NEGTOPOS_f(BlockGenerator):
+    ScilabString = ""
+
+    def _generate(self):
+        pass
+class POSTONEG_f(BlockGenerator):
+    ScilabString = ""
+
+    def _generate(self):
+        pass

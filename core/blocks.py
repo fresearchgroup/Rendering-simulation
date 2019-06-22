@@ -56,3 +56,38 @@ class CSuper(Block):
     def parameters(self):
 
         return {"Function Name:":self._funcname,"Period:": self._period, "Initialisation Time:": self._intime}
+
+
+
+#csslti
+class Csslti(Block):
+    """The Csslti Concrete Class which implements the IBlock interface"""
+
+    def __init__(self,data):
+        self._funcname = "CLSS_f"
+        self._amatrix = data[0]
+        self._bmatrix = data[1]
+        self._cmatrix = data[2]
+        self._dmatrix = data[3]
+        self._initstate = data[4]
+
+
+    def parameters(self):
+
+        return {"Function Name:":self._funcname,"A Matrix:": self._amatrix,"B Matrix:": self._bmatrix,"C Matrix:": self._cmatrix,"D Matrix:": self._dmatrix ,"Initial State:": self._initstate}
+
+class Cevscpe(Block):
+    """The CScope Concrete Class which implements the IBlock interface"""
+
+
+    def __init__(self, data):
+        self._funcname = "CEVENTSCOPE"
+        self._colorvector = data[0]
+        self._output_window_number = data[1]
+        self._output_window_position = data[2]
+        self._output_window_sizes = data[3]
+        self._refresh_period = data[4]
+
+    def parameters(self):
+
+        return {"Function Name:":self._funcname,"Color or mark vector:" :self._colorvector,"Output window number:":self._output_window_number,"Output window position:":self._output_window_position,"Output window sizes:":self._output_window_sizes,"Refresh period:" : self._refresh_period}
