@@ -63,3 +63,26 @@ class POSTONEG_f(BlockGenerator):
 
     def _generate(self):
         pass
+
+class BOUNCEXY(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+    def _generate(self):
+        return Bouncexy(self.data)
+
+class BOUNCE(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+    def _generate(self):
+        return Bounceball(self.data)
+
+
+class IFTHEL_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+    def _generate(self):
+        return Ifthel(self.data)
+
+
+
+
