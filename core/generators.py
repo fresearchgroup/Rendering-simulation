@@ -150,3 +150,67 @@ class MATMUL(BlockGenerator):
 
     def _generate(self):
         return Matmul(self.data)
+
+class SUMMATION(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Summation(self.data)
+
+class MATEIG(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Mateig(self.data)
+
+class ROOTCOEF(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Rootcoef(self.data)
+
+
+class EXTRACT(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Extract(self.data)
+
+class INTEGRAL_m(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Integral_m(self.data)
+
+class scifunc_block_m(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Sci_func_block_m(self.data)
+
+class MATINV(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Matinv(self.data)
+
+class MUX(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Mux(self.data)
+
+class GENSQR_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Gensqr(self.data)

@@ -244,3 +244,124 @@ class Matmul(Block):
 
     def parameters(self):
         return {"Function Name:":self._funcname,"Datatype:":self._datatype,"Multiplication Rule:":self._multiplication,"Do on Overflow:":self._do_on_overflow}
+
+
+class Summation(Block):
+    """The Summation Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="SUMMATION"
+        self._datatype= data[0]
+        self._number_of_input=data[1]
+        self._do_on_overflow = data[2]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Datatype:":self._datatype,"Number of Input or Sign Vector:":self._number_of_input,"Do on Overflow:":self._do_on_overflow}
+
+class Mateig(Block):
+    """The Mateig Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="MATEIG"
+        self._datatype= data[0]
+        self._decomposition_type=data[1]
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Datatype:":self._datatype,"Decomposition Type:":self._decomposition_type}
+
+
+class Rootcoef(Block):
+    """The Rootcoef Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="ROOTCOEF"
+        self._datatype= data[0]
+        self._input_size_row=data[1]
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Datatype:":self._datatype,"Input Size of Row data:":self._input_size_row}
+
+class Extract(Block):
+    """The Extract Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="EXTRACT"
+        self._datatype= data[0]
+        self._line_to_extract=data[1]
+        self._columns_to_extract=data[2]
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Datatype:":self._datatype,"Line to extract:":self._line_to_extract,"Columns to extract:":self._columns_to_extract}
+
+class Integral_m(Block):
+    """The Integral Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="INTEGRAL_m"
+        self._initial_condition= data[0]
+        self._with_re_initialization=data[1]
+        self._with_saturation=data[2]
+        self._upper_limit = data[3]
+        self._lower_limit = data[4]
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Initial Condition:":self._initial_condition,"With re-initialization:":self._with_re_initialization,"With Saturation:":self._with_saturation,"Upper Limit:":self._with_saturation,"Lower Limit:":self._lower_limit}
+
+
+class Sci_func_block_m(Block):
+    """The Sci_func_block_m Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="scifunc_block_m"
+        self._input_port_sizes= data[0]
+        self._output_port_sizes=data[1]
+        self.__input_event_port_sizes=data[2]
+        self._output_event_port_sizes=data[3]
+        self._initial_continous_state=data[4]
+        self.initial_discrete_state=data[5]
+        self._system_parameter_vector=data[6]
+        self._initial_firing_vector=data[7]
+        self._is_block_always_active=data[8]
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Input Port Sizes:":self._input_port_sizes,"Output Port Sizes:":self._output_port_sizes,"Output Event Port Sizes:":self._output_event_port_sizes,
+                "Initial Continous state:":self._initial_continous_state,"Initial Discrete State":self.initial_discrete_state,"System Parameter Vector Data:":self._system_parameter_vector,
+                "Initial Firing Vector:":self._initial_firing_vector,"Is block Always Active:":self._is_block_always_active}
+
+
+class Matinv(Block):
+    """The Matinv Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="MATINV"
+        self._datatype= data[0]
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Datatype:":self._datatype}
+
+class Mux(Block):
+    """The Mux Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="MUX"
+        self._number_of_input_ports_or_vector_sizes= data[0]
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Number of Input Ports or Vector Sizes:":self._number_of_input_ports_or_vector_sizes}
+
+class Gensqr(Block):
+    """The Gen_sqr Concrete Class which implements the Block interface"""
+
+    def __init__(self, data):
+        self._funcname = "GENSQR_f"
+        self._amplitude = data[0]
+
+    def parameters(self):
+        return {"Function Name:": self._funcname, "Amplitude": self._amplitude}
