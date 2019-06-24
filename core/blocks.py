@@ -192,6 +192,18 @@ class Ifthel(Block):
             return {"Function Name:":self._funcname,"Inherit(1:no , 0:yes):": self._inherit, "zero crossing(0:no , 1:yes):": self._zero_crossing}
 
 
+#VanneReglante
+class VanneReg(Block):
+        """The VanneReglante Concrete Class which implements the IBlock interface"""
+
+        def __init__(self,data):
+            self._funcname = "VanneReglante"
+            self._cvmax = data[0]
+            self._p_rho = data[1]
+
+        def parameters(self):
+
+            return {"Function Name:":self._funcname," Cvmax": self._cvmax, "p_rho": self._p_rho}
 
 
 ||||||| merged common ancestors

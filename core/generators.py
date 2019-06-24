@@ -85,6 +85,16 @@ class IFTHEL_f(BlockGenerator):
         return Ifthel(self.data)
 
 
+class VanneReglante(BlockGenerator):
+
+    ScilabString = "./ScilabString/data"
+
+    def _generate(self):
+        return VanneReg(self.data)
+
+
+
+
 
 
 ||||||| merged common ancestors
