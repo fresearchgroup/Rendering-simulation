@@ -100,9 +100,12 @@ class Matcath(Block):
 class Const_m(Block):
     """The Const_m Concrete Class which implements the Block interface"""
 
-<<<<<<< Updated upstream
-        return {"Function Name:":self._funcname,"Period:": self._period, "Initialisation Time:": self._intime}
+    def __init__(self,data):
+        self._funcname="CONST_m"
+        self._constant_value = data[0]
 
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Constant Value:": self._constant_value}
 
 
 #csslti
@@ -206,15 +209,7 @@ class VanneReg(Block):
             return {"Function Name:":self._funcname," Cvmax": self._cvmax, "p_rho": self._p_rho}
 
 
-||||||| merged common ancestors
-        return {"Function Name:":self._funcname,"Period:": self._period, "Initialisation Time:": self._intime}
-=======
-    def __init__(self,data):
-        self._funcname="CONST_m"
-        self._constant_value = data[0]
 
-    def parameters(self):
-        return {"Function Name:":self._funcname,"Constant Value:": self._constant_value}
 
 class Gainblk(Block):
     """The Gainblk Concrete Class which implements the Block interface"""
@@ -249,4 +244,3 @@ class Matmul(Block):
 
     def parameters(self):
         return {"Function Name:":self._funcname,"Datatype:":self._datatype,"Multiplication Rule:":self._multiplication,"Do on Overflow:":self._do_on_overflow}
->>>>>>> Stashed changes

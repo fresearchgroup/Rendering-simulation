@@ -34,7 +34,6 @@ class CLOCK_c(BlockGenerator):
     ScilabString = "./SuperBlockDiagram/mxGraphModel/root/BasicBlock/ScilabString/data"
 
     def _generate(self):
-<<<<<<< Updated upstream
         return CSuper(self.data)
 
 class CLSS_f(BlockGenerator):
@@ -96,12 +95,6 @@ class VanneReglante(BlockGenerator):
 
 
 
-
-||||||| merged common ancestors
-        return CSuper(self.data)
-=======
-        return CSuper(self.data)
-
 class SampleCLK(BlockGenerator):
     ScilabString = "./ScilabString/data"
 
@@ -157,4 +150,3 @@ class MATMUL(BlockGenerator):
 
     def _generate(self):
         return Matmul(self.data)
->>>>>>> Stashed changes
