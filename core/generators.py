@@ -34,6 +34,7 @@ class CLOCK_c(BlockGenerator):
     ScilabString = "./SuperBlockDiagram/mxGraphModel/root/BasicBlock/ScilabString/data"
 
     def _generate(self):
+<<<<<<< Updated upstream
         return CSuper(self.data)
 
 class CLSS_f(BlockGenerator):
@@ -86,3 +87,64 @@ class IFTHEL_f(BlockGenerator):
 
 
 
+||||||| merged common ancestors
+        return CSuper(self.data)
+=======
+        return CSuper(self.data)
+
+class SampleCLK(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+    def _generate(self):
+        return Sampleclk(self.data)
+
+
+class RAND_m(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+    def _generate(self):
+        return Rand_m(self.data)
+
+class MATCATV(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Matcatv(self.data)
+
+class MATCATH(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Matcath(self.data)
+
+
+class CONST_m(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Const_m(self.data)
+
+class GAINBLK(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Gainblk(self.data)
+
+class MATTRAN(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Mattran(self.data)
+
+class MATMUL(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Matmul(self.data)
+>>>>>>> Stashed changes

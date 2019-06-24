@@ -42,7 +42,7 @@
           <data line="6" column="0" value="30"/>
           <data line="7" column="0" value="20"/>
           <data line="8" column="0" value="0"/>
-          <data line="9" column="0" value=""/>
+          <data line="9" column="0" value="1"/>
         </ScilabString>
         <ScilabDouble as="realParameters" height="1" width="4">
           <data line="0" column="0" realPart="0.0"/>

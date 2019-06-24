@@ -74,6 +74,6 @@ with doc.create(Section('Basic info')):
         table.add_hline()
 with doc.create(Section('Absolute Value')):
     with doc.create(Figure(position='h!')) as abs_pic:
-        abs_pic.add_image(image_filename, width='120px')
+        abs_pic.add_image(image_filename, width='500px')
         abs_pic.add_caption('Absolute Value Block')
 doc.generate_pdf('example_abs', clean_tex=False)
