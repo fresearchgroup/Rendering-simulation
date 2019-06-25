@@ -16,26 +16,30 @@ def process_file(xml_filepath):
     #reading the xml file
     tree = ET.parse(xml_filepath)
     root = tree.getroot()
+    funcname=''
     block_types=['BasicBlock','Summation','SuperBlock']
     #generate objects one by one store it in a output list
     try:
         for data in root.findall('./mxGraphModel/root/'):
-          if data.tag in block_types:
-            classname=eval(str(data.get('interfaceFunctionName')))
-            #print(classname)
-            if classname:
-                #print(classname)
-                obj = classname(data)
-                output_list.append(obj.block)
+            if data.tag in block_types:
+
+                    funcname=data.get('interfaceFunctionName')
+                    classname=eval(str(funcname))
+
+                    if classname:
+                        obj = classname(data)
+                        output_list.append(obj.block)
 
         return output_list
-        #return 0
+
     except NameError:
-        print("Block not found:", classname.__name__)
+        print("Block not found:", funcname)
+        exit()
 
     except IndexError:
-        print("All parameters should be entered for the block:",classname.__name__)
+        print("All parameters should be entered for the block:",funcname)
         exit()
+
 
 
 
@@ -45,7 +49,7 @@ def render(img_dir, img_name, pdf_name , output_list):
     image_filename = os.path.join(img_dir,img_name)
     geometry_options = {"tmargin": "1cm","lmargin":"1cm" }
     doc = Document(geometry_options=geometry_options)
-    print(output_list)
+    #print(output_list)
     with doc.create(Section("Xcos")):
         with doc.create(Figure(position='h!')) as abs_pic:
             abs_pic.add_image(image_filename, width='120px')
