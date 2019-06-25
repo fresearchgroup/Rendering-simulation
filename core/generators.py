@@ -154,9 +154,17 @@ class MATMUL(BlockGenerator):
 class SUMMATION(BlockGenerator):
     ScilabString = "./ScilabString/data"
 
-
     def _generate(self):
         return Summation(self.data)
+
+
+
+class SourceP(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Sourcep(self.data)
 
 class MATEIG(BlockGenerator):
     ScilabString = "./ScilabString/data"
@@ -164,13 +172,30 @@ class MATEIG(BlockGenerator):
 
     def _generate(self):
         return Mateig(self.data)
+        
+
+class Bache(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Bacheb(self.data)
 
 class ROOTCOEF(BlockGenerator):
     ScilabString = "./ScilabString/data"
 
 
     def _generate(self):
-        return Rootcoef(self.data)
+        return Rootcoef(self.data)    
+        
+
+
+class PerteDP(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return PerteDp(self.data)
 
 
 class EXTRACT(BlockGenerator):
@@ -178,7 +203,16 @@ class EXTRACT(BlockGenerator):
 
 
     def _generate(self):
-        return Extract(self.data)
+        return Extract(self.data)    
+        
+
+
+class SATURATION(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Satur(self.data)
 
 class INTEGRAL_m(BlockGenerator):
     ScilabString = "./ScilabString/data"
@@ -194,6 +228,20 @@ class scifunc_block_m(BlockGenerator):
     def _generate(self):
         return Sci_func_block_m(self.data)
 
+class SUM_f(BlockGenerator):
+    ScilabString = ""
+
+
+    def _generate(self):
+        pass
+
+class CLR_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Clrf(self.data)
+
 class MATINV(BlockGenerator):
     ScilabString = "./ScilabString/data"
 
@@ -201,12 +249,33 @@ class MATINV(BlockGenerator):
     def _generate(self):
         return Matinv(self.data)
 
+class CURV_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        pass
+class PuitsP(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Puits(self.data)
+
 class MUX(BlockGenerator):
     ScilabString = "./ScilabString/data"
 
 
     def _generate(self):
-        return Mux(self.data)
+        return Mux(self.data)    
+        
+
+class GAINBLK_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Gainblkf(self.data)
 
 class GENSQR_f(BlockGenerator):
     ScilabString = "./ScilabString/data"
@@ -214,3 +283,13 @@ class GENSQR_f(BlockGenerator):
 
     def _generate(self):
         return Gensqr(self.data)
+        
+
+class CMSCOPE(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Cmscope(self.data)
+
+

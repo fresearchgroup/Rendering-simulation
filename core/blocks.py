@@ -108,7 +108,7 @@ class Const_m(Block):
         return {"Function Name:":self._funcname,"Constant Value:": self._constant_value}
 
 
-#csslti
+
 class Csslti(Block):
     """The Csslti Concrete Class which implements the IBlock interface"""
 
@@ -365,3 +365,133 @@ class Gensqr(Block):
 
     def parameters(self):
         return {"Function Name:": self._funcname, "Amplitude": self._amplitude}
+
+class Sourcep(Block):
+    """The Sourcep Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="SourceP"
+        self._pression= data[0]
+        self._temperature=data[1]
+        self._enthalpy=data[2]
+        self._option=data[3]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Pression: P0 (Pa)":self._pression,"Temperature: T0(K)":self._temperature,"Enthalpie spécifique: H0(J/Kg)":self._enthalpy,"1:température fixée -2:enthalpie fixée: option temperature":self._option}
+
+class Bacheb(Block):
+    """The Sourcep Concrete Class which implements the Block interface"""
+    def __init__(self, data):
+            self._funcname = "BOUNCE"
+            self._pression = data[0]
+            self._section = data[1]
+            self._ze1 = data[2]
+            self._ze2 = data[3]
+            self._zs1 = data[4]
+            self._zs2 = data[5]
+            self._fluid = data[6]
+            self._temp = data[7]
+            self._mass = data[8]
+
+
+    def parameters(self):
+
+        return {"Function Name:":self._funcname,"Pression dans le ciel de la bache : Patm (Pa):" :self._pression,"Section de la bache : A (m2)":self._section,"Altitude du piquage d entrée 1: ze1 (m):":self._ze1,"Altitude du piquage d entrée 2: ze2 (m):":self._ze2,"Altitude du piquage de sortie 1: zs1 (m):" : self._zs1,"Altitude du piquage de sortie 2: zs2 (m):" : self._zs2,"Altitude initiale du fluide : z0 (m):" : self._fluid,"Température initiale du fluide : T0 (K):" : self._temp,"Si 0, masse volumique imposée du fluide : p_rho (kg/m3):" : self._mass}
+
+
+class PerteDp(Block):
+    """The PerteDP Concrete Class which implements the IBlock interface"""
+
+
+    def __init__(self, data):
+        self._funcname = "PerteDP"
+        self._long = data[0]
+        self._diametre = data[1]
+        self._coefficient = data[2]
+        self._z1 = data[3]
+        self._z2 = data[4]
+        self._mass = data[5]
+
+    def parameters(self):
+
+        return {"Function Name:":self._funcname,"Longueur du tube : L (m):" :self._long,"Diamètre interne du tube : D (m):":self._diametre,"Coefficient de perte de charge-frottement(S.U) : lambda:":self._coefficient,"Altitude entrée tuyauterie : z1 (m):":self._z1,"Altitude sortie tuyauterie : z2 (m):" : self._z2,"Si 0, masse volumique imposée fu fluide : p_rho (kg/m3)" : self._mass}
+
+
+
+class Satur(Block):
+    """The Saturation Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="MATMUL"
+        self._ulimit= data[0]
+        self._llimit=data[1]
+        self._zcross = data[2]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Upper Limit:":self._ulimit,"Lower Limit:":self._llimit,"zero crossing(0:no , 1:yes):":self._zcross}
+
+class Clrf(Block):
+    """The CLR_f Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="GAINBLK"
+        self._numerator= data[0]
+        self._denominator=data[1]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Numerator:":self._numerator,"Denominator:":self._denominator}
+
+
+class Puits(Block):
+    """The Puits Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="SourceP"
+        self._pression= data[0]
+        self._temperature=data[1]
+        self._enthalpy=data[2]
+        self._option=data[3]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Pression de la source: P0 (Pa)":self._pression,"Temperature de la source: T0(K)":self._temperature,"Enthalpie spécifique de la source: H0(J/Kg)":self._enthalpy,"1:température fixée -2:enthalpie fixée: option temperature":self._option}
+
+
+
+class Gainblkf(Block):
+    """The Gainblk Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="GAINBLK_f"
+        self._gain = data[0]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Gain:":self._gain}
+
+
+
+
+class Cmscope(Block):
+    """The CMScope Concrete Class which implements the Block interface"""
+
+    def __init__(self, data):
+        self._funcname = "CSCOPE"
+        self._input_port_sizes=data[0]
+        self._colorvector = data[1]
+        self._output_window_number = data[2]
+        self._output_window_position = data[3]
+        self._output_window_sizes = data[4]
+        self._ymin = data[5]
+        self._ymax = data[6]
+        self._refresh_period = data[7]
+        self._buffer_size = data[8]
+        self._accept_herited_events = data[9]
+        self._scope_name = data[10]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Input port sizes:":self._input_port_sizes,"Color or mark vector:" :self._colorvector,"Output window number:":self._output_window_number,"Output window position:":self._output_window_position,"Output window sizes:":self._output_window_sizes, "Ymin:": self._ymin, "Ymax:": self._ymax,"Refresh period:" : self._refresh_period ,"Buffer Size:": self._buffer_size,"Accept herited events:": self._accept_herited_events,"Name of Scope:": self._scope_name}
+
+
+
+
+
+
