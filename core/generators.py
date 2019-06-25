@@ -36,7 +36,7 @@ class CLOCK_c(BlockGenerator):
     def _generate(self):
         return CSuper(self.data)
 
-class CLSS_f(BlockGenerator):
+class CLSS(BlockGenerator):
     ScilabString = "./ScilabString/data"
 
     def _generate(self):
@@ -114,6 +114,7 @@ class MATCATV(BlockGenerator):
 
     def _generate(self):
         return Matcatv(self.data)
+
 
 class MATCATH(BlockGenerator):
     ScilabString = "./ScilabString/data"
@@ -222,7 +223,7 @@ class INTEGRAL_m(BlockGenerator):
         return Integral_m(self.data)
 
 class scifunc_block_m(BlockGenerator):
-    ScilabString = "./ScilabString/data"
+    ScilabString = ".Array/ScilabString/data"
 
 
     def _generate(self):
