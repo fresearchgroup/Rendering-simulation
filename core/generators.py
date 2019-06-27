@@ -306,17 +306,17 @@ class CURRENTSENSOR(BlockGenerator):
     def _generate(self):
         return Currentsensor(self.data)
 
-class RESISTOR(BlockGenerator):
+class Resistor(BlockGenerator):
     ScilabString="./ScilabString/data"
 
     def _generate(self):
-        return Resistor(self.data)
+        return Resist(self.data)
 
 class STEP_FUNCTION(BlockGenerator):
-    ScilabString="./ScilabString/data"
+    ScilabString="./SuperBlockDiagram/mxGraphModel/root/BasicBlock/ScilabString/data"
 
     def _generate(self):
-        return Resistor(self.data)
+        return Step_function(self.data)
 
 class GROUND(BlockGenerator):
     ScilabString= None

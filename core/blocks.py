@@ -514,7 +514,7 @@ class Currentsensor(Block):
         return {"Function Name:":self._funcname,"Parameters:":self._parameters}
 
 
-class Resistor(Block):
+class Resist(Block):
     """The Resistor Concrete Class which implements the Block interface"""
 
     def __init__(self,data):
