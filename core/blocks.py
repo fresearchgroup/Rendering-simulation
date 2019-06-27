@@ -493,5 +493,51 @@ class Cmscope(Block):
 
 
 
+class Induct(Block):
+    """The Inductor Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="Inductor"
+        self._inductance = data[0]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"L(H):": self._inductance}
+
+
+class SineV(Block):
+    """The SineVoltage Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="SourceP"
+        self._amp= data[0]
+        self._phase=data[1]
+        self._freq=data[2]
+        self._voltage=data[3]
+        self._timeoff=data[3]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Amplitude(Volt):":self._amp,"phase(rad):":self._phase,"Frequency(Hz)":self._freq,"Voltageoffset(V)":self._voltage,"Timeoffset(s)":self._timeoff}
+
+class SwitchB(Block):
+    """The Switch Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="Switch"
+        self._resinon = data[0]
+        self._resinoff = data[1]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Resistance in On State(Ohm):": self._resinon,"Resistance in Off State(Ohm):": self._resinoff}
+class CCSB(Block):
+     """The Switch Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+        self._funcname="Inductor"
+        self._parameters="No parameters"
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Parameters:": self._parameters}
+
+
 
 

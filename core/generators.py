@@ -5,8 +5,9 @@ class BlockGenerator(ABC):
 
     def __init__(self, block_root):
         self.data=[]
-        for y in block_root.findall(self.ScilabString):
-              self.data.append(y.get('value'))
+        if self.ScilabString:
+            for y in block_root.findall(self.ScilabString):
+                  self.data.append(y.get('value'))
         self.block = self._generate()
 
     @abstractmethod
@@ -54,12 +55,12 @@ class CEVENTSCOPE(BlockGenerator):
         return Cevscpe(self.data)
 
 class NEGTOPOS_f(BlockGenerator):
-    ScilabString = ""
+    ScilabString = None
 
     def _generate(self):
         pass
 class POSTONEG_f(BlockGenerator):
-    ScilabString = ""
+    ScilabString = None
 
     def _generate(self):
         pass
@@ -230,7 +231,7 @@ class scifunc_block_m(BlockGenerator):
         return Sci_func_block_m(self.data)
 
 class SUM_f(BlockGenerator):
-    ScilabString = ""
+    ScilabString = None
 
 
     def _generate(self):
@@ -292,5 +293,39 @@ class CMSCOPE(BlockGenerator):
 
     def _generate(self):
         return Cmscope(self.data)
+
+
+class Inductor(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Induct(self.data)
+
+class SineVoltage(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return SineV(self.data)
+
+
+
+class Switch(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return SwitchB(self.data)
+
+
+
+class CCS(BlockGenerator):
+    ScilabString = ""
+
+
+    def _generate(self):
+        return CCSB(self.data)
+
 
 
