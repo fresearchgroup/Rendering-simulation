@@ -86,7 +86,6 @@ class Matcatv(Block):
 
     def parameters(self):
       return {"Function Name:":self._funcname,"Number of input:": self._number_of_input}
-
 class Matcath(Block):
     """The Matcath Concrete Class which implements the Block interface"""
 
@@ -491,7 +490,103 @@ class Cmscope(Block):
         return {"Function Name:":self._funcname,"Input port sizes:":self._input_port_sizes,"Color or mark vector:" :self._colorvector,"Output window number:":self._output_window_number,"Output window position:":self._output_window_position,"Output window sizes:":self._output_window_sizes, "Ymin:": self._ymin, "Ymax:": self._ymax,"Refresh period:" : self._refresh_period ,"Buffer Size:": self._buffer_size,"Accept herited events:": self._accept_herited_events,"Name of Scope:": self._scope_name}
 
 
+class Voltagesensor(Block):
+    """The Voltagesensor Concrete Class which implements the Block interface"""
 
+    def __init__(self,data):
+        self._funcname="VoltageSensor"
+        self._parameters="No Parameters"
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Parameters:":self._parameters}
+
+
+class Currentsensor(Block):
+    """The Currentsensor Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="CurrentSensor"
+        self._parameters="No Parameters"
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Parameters:":self._parameters}
+
+
+class Resistor(Block):
+    """The Resistor Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="Resistor"
+        self._ohm=data[0]
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"R(ohm):":self._ohm}
+
+
+
+class Step_function(Block):
+    """The Step function Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="STEP_FUNCTION"
+        self._step_time=data[0]
+        self._inital_value=data[1]
+        self._final_value=data[2]
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Inital Value:":self._inital_value,"Final Value:":self._final_value}
+
+
+class Ground(Block):
+    """The Ground Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="Ground"
+        self._parameters="No parameters"
+
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Parameters:":self._parameters}
+
+
+class Sum_f(Block):
+    """The Ground Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="SUM_f"
+        self._parameters="No parameters"
+
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Parameters:":self._parameters}
+
+class Postoneg_f(Block):
+    """The Ground Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="POSTONEG_f"
+        self._parameters="No parameters"
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Parameters:":self._parameters}
+
+class Negtopos_f(Block):
+    """The Ground Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="NEGTOPOS_f"
+        self._parameters="No parameters"
+
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Parameters:":self._parameters}
 
 class Induct(Block):
     """The Inductor Concrete Class which implements the Block interface"""
@@ -532,12 +627,8 @@ class CCSB(Block):
      """The Switch Concrete Class which implements the Block interface"""
 
      def __init__(self,data):
-        self._funcname="Inductor"
+        self._funcname="CCS"
         self._parameters="No parameters"
 
      def parameters(self):
         return {"Function Name:":self._funcname,"Parameters:": self._parameters}
-
-
-
-

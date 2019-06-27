@@ -58,12 +58,12 @@ class NEGTOPOS_f(BlockGenerator):
     ScilabString = None
 
     def _generate(self):
-        pass
+        return Negtopos_f(self.data)
 class POSTONEG_f(BlockGenerator):
     ScilabString = None
 
     def _generate(self):
-        pass
+        return Postoneg_f(self.data)
 
 class BOUNCEXY(BlockGenerator):
     ScilabString = "./ScilabString/data"
@@ -235,7 +235,7 @@ class SUM_f(BlockGenerator):
 
 
     def _generate(self):
-        pass
+        return Sum_f(self.data)
 
 class CLR_f(BlockGenerator):
     ScilabString = "./ScilabString/data"
@@ -294,6 +294,35 @@ class CMSCOPE(BlockGenerator):
     def _generate(self):
         return Cmscope(self.data)
 
+class VOLTAGESENSOR(BlockGenerator):
+    ScilabString= None
+
+    def _generate(self):
+        return Voltagesensor(self.data)
+
+class CURRENTSENSOR(BlockGenerator):
+    ScilabString= None
+
+    def _generate(self):
+        return Currentsensor(self.data)
+
+class RESISTOR(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Resistor(self.data)
+
+class STEP_FUNCTION(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Resistor(self.data)
+
+class GROUND(BlockGenerator):
+    ScilabString= None
+
+    def _generate(self):
+        return Ground(self.data)
 
 class Inductor(BlockGenerator):
     ScilabString = "./ScilabString/data"
@@ -321,11 +350,8 @@ class Switch(BlockGenerator):
 
 
 class CCS(BlockGenerator):
-    ScilabString = ""
+    ScilabString = None
 
 
     def _generate(self):
         return CCSB(self.data)
-
-
-
