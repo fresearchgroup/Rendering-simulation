@@ -8,11 +8,18 @@ import xml.etree.ElementTree as ET
 
 def process_file(xml_filepath):
     output_list=[]
-    '''
+    try:
+        my_file = open(xml_filepath)
+    except IOError:
+        # file couldn't be opened, perhaps you need to create it
+        print("Couldn't open file.Please check if the file path is correct.")
+        exit()
+
+    #opening the file in Scilab 6.0 to port xml schema to the latest version.
     path_to_upgraded_file=xml_filepath.split('/')[-1].split('.')[0]+'_updated.xcos'
     command='scs_m = xcosDiagramToScilab('+'\''+xml_filepath+'\''+');xcosDiagramToScilab("'+path_to_upgraded_file+'", scs_m); quit();'
     subprocess.call(['scilab-adv-cli', '-e', command])
-    '''
+
     #reading the xml file
     tree = ET.parse(xml_filepath)
     root = tree.getroot()
