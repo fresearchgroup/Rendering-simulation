@@ -237,7 +237,7 @@ class SUM_f(BlockGenerator):
     def _generate(self):
         return Sum_f(self.data)
 
-class CLR_f(BlockGenerator):
+class CLR(BlockGenerator):
     ScilabString = "./ScilabString/data"
 
 
@@ -355,3 +355,75 @@ class CCS(BlockGenerator):
 
     def _generate(self):
         return CCSB(self.data)
+
+class BIGSOM_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return BigSom(self.data)
+
+class generic_block3(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Generic_block(self.data)
+
+
+class c_block(BlockGenerator):
+    ScilabString = ".Array/ScilabString/data"
+
+
+    def _generate(self):
+        return Cblock(self.data)
+
+class fortran_block(BlockGenerator):
+    ScilabString = ".Array/ScilabString/data"
+
+
+    def _generate(self):
+        return Fortran(self.data)
+
+
+
+class DEBUG(BlockGenerator):
+    ScilabString = ".Array/ScilabString/data"
+
+
+    def _generate(self):
+        return Debug(self.data)
+
+
+class EXPRESSION(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Expression(self.data)
+
+class CBLOCK4(BlockGenerator):
+    ScilabString = ".Array/ScilabString/data"
+
+
+    def _generate(self):
+        return Cblock4(self.data)
+
+class CBLOCK(BlockGenerator):
+    ScilabString = ".Array/ScilabString/data"
+
+
+    def _generate(self):
+        return Cblock2(self.data)
+
+
+class MBLOCK(BlockGenerator):
+    ScilabString = ".Array/ScilabString/data"
+
+
+    def _generate(self):
+        return MBlock(self.data)
+
+
+
+

@@ -433,7 +433,7 @@ class Clrf(Block):
     """The CLR_f Concrete Class which implements the Block interface"""
 
     def __init__(self,data):
-        self._funcname="GAINBLK"
+        self._funcname="CLR"
         self._numerator= data[0]
         self._denominator=data[1]
 
@@ -538,7 +538,7 @@ class Step_function(Block):
 
 
     def parameters(self):
-        return {"Function Name:":self._funcname,"Inital Value:":self._inital_value,"Final Value:":self._final_value}
+        return {"Function Name:":self._funcname,"Step time:":self._step_time,"Inital Value:":self._inital_value,"Final Value:":self._final_value}
 
 
 class Ground(Block):
@@ -624,7 +624,7 @@ class SwitchB(Block):
     def parameters(self):
         return {"Function Name:":self._funcname,"Resistance in On State(Ohm):": self._resinon,"Resistance in Off State(Ohm):": self._resinoff}
 class CCSB(Block):
-     """The Switch Concrete Class which implements the Block interface"""
+     """The CCSB Concrete Class which implements the Block interface"""
 
      def __init__(self,data):
         self._funcname="CCS"
@@ -632,3 +632,173 @@ class CCSB(Block):
 
      def parameters(self):
         return {"Function Name:":self._funcname,"Parameters:": self._parameters}
+
+
+class BigSom(Block):
+     """The BigSom Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+        self._funcname="BIGSOM_f"
+        self._inp=data[0]
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Input ports signs/gain": self._inp}
+
+
+
+class Generic_block(Block):
+    """The Generic_block Concrete Class which implements the Block interface"""
+
+    def __init__(self, data):
+        self._funcname = "generic_block3"
+        self._sim_func=data[0]
+        self._functype = data[1]
+        self._input_port_size = data[2]
+        self._input_port_type = data[3]
+        self._output_port_size= data[4]
+        self._output_port_type = data[5]
+        self._input_event_port_size = data[6]
+        self._output_event_port_size = data[7]
+        self._initial_continuous = data[8]
+        self._initial_discrete = data[9]
+        self._initial_object = data[10]
+        self._real_parameter = data[11]
+        self._integer_parameter = data[12]
+        self._object_parameter = data[13]
+        self._number_of_modes = data[14]
+        self._nzero = data[15]
+        self._initial_firing_vector = data[16]
+        self._direct_feedthrough = data[17]
+        self._time_dependence = data[18]
+
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Simulation function:":self._sim_func,"Function type:" :self._functype,"Input ports sizes:":self._input_port_size,"Input ports type:":self._input_port_type,"Output port sizes:":self._output_port_size, "Output ports type:": self._output_port_type, "Input event ports sizes:": self._input_event_port_size,"Output events ports sizes:" : self._output_event_port_size ,"Initial continuous state:": self._initial_continuous,"Initial discrete state:": self._initial_discrete,"Initial object state:": self._initial_object,"Real parameters vector:": self._real_parameter,"Integer parameters vector:": self._integer_parameter,"Object parameters list:": self._object_parameter,"Number of zero_crossings:": self._nzero,"Initial firing vector:": self._initial_firing_vector,"Direct feedthrough:": self._direct_feedthrough,"Time dependence:": self._time_dependence}
+
+
+class Cblock(Block):
+    """The Cblock Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="cblock"
+        self._input_ports_sizes= data[0]
+        self._output_ports_sizes=data[1]
+        self._system_parameters_vectors=data[2]
+        self._functionname=data[3]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"input ports sizes:":self._input_ports_sizes,"output port sizes:":self._output_ports_sizes,"System parameters vector:":self._system_parameters_vectors,"function name:":self._functionname,}
+
+class Debug(Block):
+        """The Debug Concrete Class which implements the IBlock interface"""
+
+        def __init__(self,data):
+            self._funcname = "DEBUG"
+            self._instruction = data[0]
+
+        def parameters(self):
+
+            return {"Function Name:":self._funcname," Enter scilab instructions for debugging.Inputs are block and flag,output is block:": self._instruction}
+
+class Expression(Block):
+    """The EXPRESSION Concrete Class which implements the IBlock interface"""
+
+    def __init__(self,data):
+        self._funcname="Switch"
+        self._numinput = data[0]
+        self._sciexpr = data[1]
+        self._zeroc = data[1]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"number of inputs:": self._numinput,"scilab expression:": self._sciexpr,"use zero-crossing:": self._zeroc}
+
+
+
+class Cblock4(Block):
+    """The Cblock4 Concrete Class which implements the Block interface"""
+
+    def __init__(self, data):
+        self._funcname = "generic_block3"
+        self._sim_func=data[0]
+        self._is_implicit=data[1]
+        self._functype = data[2]
+        self._input_port_size = data[3]
+        self._input_port_type = data[4]
+        self._output_port_size= data[5]
+        self._output_port_type = data[6]
+        self._input_event_port_size = data[7]
+        self._output_event_port_size = data[8]
+        self._initial_continuous = data[9]
+        self._initial_discrete = data[10]
+        self._initial_object = data[11]
+        self._real_parameter = data[12]
+        self._integer_parameter = data[13]
+        self._object_parameter = data[14]
+        self._number_of_modes = data[15]
+        self._nzero = data[16]
+        self._initial_firing_vector = data[17]
+        self._direct_feedthrough = data[18]
+        self._time_dependence = data[19]
+
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Is block implicit(y/n):":self._is_implicit,"Simulation function:":self._sim_func,"Function type:" :self._functype,"Input ports sizes:":self._input_port_size,"Input ports type:":self._input_port_type,"Output port sizes:":self._output_port_size, "Output ports type:": self._output_port_type, "Input event ports sizes:": self._input_event_port_size,"Output events ports sizes:" : self._output_event_port_size ,"Initial continuous state:": self._initial_continuous,"Initial discrete state:": self._initial_discrete,"Initial object state:": self._initial_object,"Real parameters vector:": self._real_parameter,"Integer parameters vector:": self._integer_parameter,"Object parameters list:": self._object_parameter,"Number of zero_crossings:": self._nzero,"Initial firing vector:": self._initial_firing_vector,"Direct feedthrough:": self._direct_feedthrough,"Time dependence:": self._time_dependence}
+
+
+class Fortran(Block):
+    """The Cblock Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="fortran_block"
+        self._input_ports_sizes= data[0]
+        self._output_ports_sizes=data[1]
+        self._system_parameters_vectors=data[2]
+        self._functionname=data[3]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"input ports sizes:":self._input_ports_sizes,"output port sizes:":self._output_ports_sizes,"System parameters vector:":self._system_parameters_vectors,"function name:":self._functionname,}
+
+class Cblock2(Block):
+    """The Cblock4 Concrete Class which implements the Block interface"""
+
+    def __init__(self, data):
+        self._funcname = "generic_block3"
+        self._sim_func=data[0]
+        self._is_implicit=data[1]
+        self._input_port_size = data[2]
+        self._output_port_size= data[3]
+        self._input_event_port_size = data[4]
+        self._output_event_port_size = data[5]
+        self._initial_continuous = data[6]
+        self._nzero = data[7]
+        self._initial_discrete = data[8]
+        self._real_parameter = data[9]
+        self._integer_parameter = data[10]
+        self._initial_firing_vector = data[11]
+        self._direct_feedthrough = data[12]
+        self._time_dependence = data[13]
+
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"simulation function:":self._sim_func,"Is block implicit(y/n):":self._is_implicit,"Input ports sizes:":self._input_port_size,"Output port sizes:":self._output_port_size,"Input event ports sizes:": self._input_event_port_size,"Output events ports sizes:" : self._output_event_port_size ,"Initial continuous state:": self._initial_continuous,"number of zero crossing surfaces":self._nzero,"Initial discrete state:": self._initial_discrete,"Real parameters vector:": self._real_parameter,"Integer parameters vector:": self._integer_parameter,"Initial firing vector:": self._initial_firing_vector,"Direct feedthrough:": self._direct_feedthrough,"Time dependence:": self._time_dependence}
+
+
+class MBlock(Block):
+     def __init__(self,data):
+        self._funcname="MBLOCK"
+        self._input_variables= data[0]
+        self._input_variables_types=data[1]
+        self._output_variables= data[2]
+        self._output_variables_types=data[3]
+        self._parameters_modellica=data[4]
+        self._parameters_properties=data[5]
+        self._function_name=data[6]
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Input variables:":self._input_variables,"Input variables types:":self._input_variables_types,"Output variables:":self._output_variables,"Output variables types:":self._output_variables_types,"Parameters in Modelica:":self._parameters_modellica,"Parameters properties:":self._parameters_properties,"Function name:":self._function_name}
+
+
+
