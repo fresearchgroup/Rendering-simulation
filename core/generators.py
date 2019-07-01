@@ -252,11 +252,11 @@ class MATINV(BlockGenerator):
         return Matinv(self.data)
 
 class CURV_f(BlockGenerator):
-    ScilabString = "./ScilabString/data"
+    ScilabString = None
 
 
     def _generate(self):
-        pass
+        return Curvf(self.data)
 class PuitsP(BlockGenerator):
     ScilabString = "./ScilabString/data"
 
@@ -426,4 +426,147 @@ class MBLOCK(BlockGenerator):
 
 
 
+class BPLATFORM(BlockGenerator):
+    ScilabString = "./ScilabString/data"
 
+
+    def _generate(self):
+        return Bplatform(self.data)
+
+class Flowmeter(BlockGenerator):
+    ScilabString = None
+
+    def _generate(self):
+        return FlowMeter(self.data)
+
+class CLKINV_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Clkinv(self.data)
+
+
+
+class TIME_f(BlockGenerator):
+    ScilabString = None
+
+
+    def _generate(self):
+        return Timef(self.data)
+
+
+class RAMP(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Ramp(self.data)
+
+
+class CONST_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Const_f(self.data)
+
+class CONST(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Const(self.data)
+
+class CONST(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Const(self.data)
+
+
+
+
+class SAWTOOTH_f (BlockGenerator):
+    ScilabString = None
+
+
+    def _generate(self):
+        return Sawtooth(self.data)
+
+
+
+class PULSE_SC(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Pulse(self.data)
+
+
+
+class Sigbuilder(BlockGenerator):
+    ScilabString="./SuperBlockDiagram/mxGraphModel/root/BasicBlock/ScilabString/data"
+
+    def _generate(self):
+        return SigBuild(self.data)
+
+class Modulo_Count(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return ModCount(self.data)
+
+
+class Counter(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Count(self.data)
+
+class TKSCALE(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return TkScale(self.data)
+
+
+class FROMWSB(BlockGenerator):
+    ScilabString="./SuperBlockDiagram/mxGraphModel/root/BasicBlock/ScilabString/data"
+
+    def _generate(self):
+        return FromWsb(self.data)
+
+
+class READAU_f(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return TkScale(self.data)
+
+
+class READC_f(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Readc(self.data)
+
+
+class RFILE_f(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Rfile(self.data)
+
+class INIMPL_f(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Inimpl(self.data)
+
+class IN_f(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return In_F(self.data)

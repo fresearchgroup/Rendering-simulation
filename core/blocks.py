@@ -705,10 +705,10 @@ class Expression(Block):
     """The EXPRESSION Concrete Class which implements the IBlock interface"""
 
     def __init__(self,data):
-        self._funcname="Switch"
+        self._funcname="EXPRESSION"
         self._numinput = data[0]
         self._sciexpr = data[1]
-        self._zeroc = data[1]
+        self._zeroc = data[2]
 
     def parameters(self):
         return {"Function Name:":self._funcname,"number of inputs:": self._numinput,"scilab expression:": self._sciexpr,"use zero-crossing:": self._zeroc}
@@ -761,10 +761,10 @@ class Fortran(Block):
         return {"Function Name:":self._funcname,"input ports sizes:":self._input_ports_sizes,"output port sizes:":self._output_ports_sizes,"System parameters vector:":self._system_parameters_vectors,"function name:":self._functionname,}
 
 class Cblock2(Block):
-    """The Cblock4 Concrete Class which implements the Block interface"""
+    """The Cblock2 Concrete Class which implements the Block interface"""
 
     def __init__(self, data):
-        self._funcname = "generic_block3"
+        self._funcname = "CBLOCK"
         self._sim_func=data[0]
         self._is_implicit=data[1]
         self._input_port_size = data[2]
@@ -801,4 +801,268 @@ class MBlock(Block):
         return {"Function Name:":self._funcname,"Input variables:":self._input_variables,"Input variables types:":self._input_variables_types,"Output variables:":self._output_variables,"Output variables types:":self._output_variables_types,"Parameters in Modelica:":self._parameters_modellica,"Parameters properties:":self._parameters_properties,"Function name:":self._function_name}
 
 
+
+class Bplatform(Block):
+    """The BPLATFORM Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="BPLATFORM"
+        self._pen_length= data[0]
+        self._cart_size=data[1]
+        self._slope=data[2]
+        self._xmin=data[3]
+        self._xmax=data[4]
+        self._ymin=data[5]
+        self._ymax=data[6]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Pendulum Length:":self._pen_length,"cart size:":self._cart_size,"Slope":self._slope,"Xmin":self._xmin,"Xmax":self._xmax,"Ymin":self._ymin,"Ymax":self._ymax}
+
+
+class FlowMeter(Block):
+    """The FlowMeter Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="Flowmeter"
+        self._parameters="No Parameters"
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Parameters:":self._parameters}
+
+
+class Clkinv(Block):
+    """The CLKINV_f Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="CLKINV_f"
+        self._port_number=data[0]
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Input port number:":self._port_number}
+
+
+
+class Timef(Block):
+    """The TIME_f Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="TIME_f"
+        self._parameters="No Parameters"
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Parameters:":self._parameters}
+
+class Ramp(Block):
+    """The EXPRESSION Concrete Class which implements the IBlock interface"""
+
+    def __init__(self,data):
+        self._funcname="RAMP"
+        self._slope = data[0]
+        self._start_time = data[1]
+        self._initial = data[2]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Slope:": self._slope,"Start time:": self._start_time,"Initial Time:": self._initial}
+
+
+class Curvf(Block):
+    """The Currentsensor Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="CurrentSensor"
+        self._parameters="No Parameters"
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Parameters:":self._parameters}
+
+class Const_f(Block):
+    """The Const_f Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="CONST_f"
+        self._constant_value = data[0]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Constant Value:": self._constant_value}
+
+
+class Const(Block):
+    """The Const Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="CONST"
+        self._constant_value = data[0]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Constant:": self._constant_value}
+
+
+class Sawtooth(Block):
+     """The Sawtooth Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+        self._funcname="SAWTOOTH_f"
+        self._parameters="No parameters"
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Parameters:": self._parameters}
+
+
+class Pulse(Block):
+     """The PULSE_SC Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="PULSE_SC"
+         self._phase=data[0]
+         self._pulse_width=data[1]
+         self._period=data[2]
+         self._amplitude=data[3]
+
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Phase delay(secs):": self._phase,"Pulse Width(% of period):": self._pulse_width,"Period(secs):": self._period,"Amplitude:": self._amplitude}
+
+class SigBuild(Block):
+     """The SigBuild Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="PULSE_SC"
+         self._spline_method=data[0]
+         self._x=data[1]
+         self._y=data[2]
+         self._periodic_signal=data[3]
+         self._launch_graphic_window=data[4]
+
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Spline Method(0..7):": self._spline_method,"x:": self._x,"y:": self._y,"Periodic signal(y/n)?:": self._periodic_signal,"Launch graphic window(y/n)?:": self._launch_graphic_window}
+
+class ModCount(Block):
+     """The ModCount Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="Modulo_Count"
+         self._initstate=data[0]
+         self._ulimit=data[1]
+
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Initial State(zero or positive number):": self._initstate,"Upper Limit (positive number):": self._ulimit}
+
+class Count(Block):
+     """The Counter Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="Modulo_Count"
+         self._min=data[0]
+         self._max=data[1]
+         self._rule=data[2]
+
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Minimum:": self._min,"Maximum:": self._max,"Rule (1:Increment, 2:Decrement):": self._rule}
+
+
+class TkScale(Block):
+     """The TKSCALE Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="TKSCALE"
+         self._min=data[0]
+         self._max=data[1]
+         self._normal=data[2]
+
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Min value:": self._min,"Max value:": self._max,"Normalisation:": self._normal}
+
+
+class FromWsb(Block):
+     """The FROMWSB Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="FROMWSB"
+         self._variable=data[0]
+         self._interpolation=data[1]
+         self._enable=data[2]
+         self._output=data[3]
+
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Variable name:": self._variable,"Interpolation method:": self._interpolation,"Enable zero crossing(0:No, 1:Yes)?:": self._enable,"Output at end(0:Zero, 1:Hold, 2:Repeat)":self._output}
+
+
+
+
+class Readau_f(Block):
+     """"The Readau_f Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="FROMWSB"
+         self._input_file_name=data[0]
+         self._buffer_size=data[1]
+         self._swap_mode=data[2]
+
+
+     def parameters(self):
+         return {"Function Name:":self._funcname,"Input file name:": self._input_file_name,"Buffer size:": self._buffer_size,"Swap mode 0/1:": self._swap_mode}
+
+
+class Readc(Block):
+     """The READC_f Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="READC_f"
+         self._time_record_selection=data[0]
+         self._outputs_record_selection=data[1]
+         self._input_file_name=data[2]
+         self._input_format=data[3]
+         self._record_size=data[4]
+         self._buffer_size=data[4]
+         self._initial_record_index=data[4]
+         self._swap_mode=data[4]
+
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Time record selection:": self._time_record_selection,"Outputs record selection:": self._outputs_record_selection,"Input file name:": self._input_file_name,"Input Format:": self._input_format,"Record size:": self._record_size,"Buffer size:": self._buffer_size,"Initial Record Index:": self._initial_record_index,"Swap Mode(0:No, 1:Yes):": self._swap_mode}
+class Rfile(Block):
+     """"The RFILE_f Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="RFILE_f"
+         self._time_record_selection=data[0]
+         self._output_record_selection=data[1]
+         self._input_file_name=data[2]
+         self._input_format=data[3]
+         self._buffer_size=data[4]
+
+
+     def parameters(self):
+         return {"Function Name:":self._funcname,"Time record selection:": self._time_record_selection,"Outputs record selection:": self._output_record_selection,"Input file name:": self._input_file_name,"Input format:": self._input_format,"Buffer size:":self._buffer_size}
+
+
+class Inimpl(Block):
+     """The Inimpl Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="INIMPL_f"
+         self._port_num=data[0]
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Port Number:": self._port_num}
+class In_f(Block):
+     """The IN_f Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="IN_f"
+         self._port_num=data[0]
+         self._output_size=data[1]
+         self._output_type=data[2]
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Port Number:": self._port_num,"Output port size:": self._output_size,"Output port type:": self._output_type}
 
