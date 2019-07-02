@@ -569,4 +569,132 @@ class IN_f(BlockGenerator):
     ScilabString="./ScilabString/data"
 
     def _generate(self):
-        return In_F(self.data)
+        return In_f(self.data)
+
+class CONSTRAINT_c(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Constraint_c(self.data)
+
+class DIFF_f(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Diff_f(self.data)
+class GENERAL_f(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return GenF(self.data)
+
+class ZCROSS_f(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Zcrossf(self.data)
+
+class AFFICH_m(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Affichm(self.data)
+
+class BARXY(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Barxy(self.data)
+
+
+class CSCOPXY3D(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Cscopxy3d(self.data)
+
+
+class WRITEAU_f(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Writeauf(self.data)
+
+
+class CANIMXY(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Canimxy(self.data)
+
+
+class CMAT3D(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Cmat3d(self.data)
+
+
+
+
+class WRITEC_f(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Writecf(self.data)
+
+
+
+class CANIMXY3D(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Canimxy3d(self.data)
+
+
+class CFSCOPE(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Cfscope(self.data)
+
+class CSCOPXY(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Cscopxy(self.data)
+
+
+
+
+class CMATVIEW(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Cmatview(self.data)
+
+
+class TRASH_f (BlockGenerator):
+    ScilabString = None
+
+
+    def _generate(self):
+        return Trashf(self.data)
+
+class TOWS_c(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Cmatview(self.data)
+
+class OUT_f(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Outf(self.data)
+
+class OUTIMPL_f(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Outimpf(self.data)

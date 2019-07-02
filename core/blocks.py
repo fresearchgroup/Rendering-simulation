@@ -1066,3 +1066,271 @@ class In_f(Block):
      def parameters(self):
         return {"Function Name:":self._funcname,"Port Number:": self._port_num,"Output port size:": self._output_size,"Output port type:": self._output_type}
 
+class Constraint_c(Block):
+     """The Constraint_c Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="CONSTRAINT_c"
+         self._initial_guess=data[0]
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Initial Guess Value:": self._initial_guess}
+
+
+class Diff_f(Block):
+     """The DIFF_f Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="DIFF_f"
+         self._initial_state=data[0]
+         self._initial_derivative=data[1]
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Initial State:": self._initial_state,"Initial Derivative:": self._initial_derivative}
+
+
+class GenF(Block):
+     """The GENERAL_f Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="GENERAL_f"
+         self._input_size=data[0]
+         self._number_of_event_output=data[1]
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Input Size:": self._input_size,"Number of Event Output:": self._number_of_event_output}
+
+class Zcrossf(Block):
+     """The ZCROSS_f Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="ZCROSS_f"
+         self._input_size=data[0]
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Input Size:": self._input_size}
+
+class Affichm(Block):
+     """The AFFICH_m Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="AFFICH_m"
+         self._input_size=data[0]
+         self._font_number=data[1]
+         self._font_size=data[2]
+         self._color=data[3]
+         self._total_number_digits=data[4]
+         self._rational_part=data[5]
+         self._block_inherits=data[6]
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Input Size:": self._input_size,"Font Number:": self._font_number,"Font Size:": self._font_size,"Color:": self._color,"Number of rational part digits:": self._rational_part,"Block inherits(1) or not(0):": self._block_inherits}
+
+class Barxy(Block):
+     """The BARXY Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="BARXY"
+         self._xmin=data[0]
+         self._xmax=data[1]
+         self._ymin=data[2]
+         self._ymax=data[3]
+         self._seg=data[4]
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Xmin:": self._xmin,"Xmax:": self._xmax,"Ymin:": self._ymin,"Ymax:": self._ymax,"Seg Thickness":self._seg}
+
+class Cscopxy3d(Block):
+    """The CSCOPXY3D Concrete Class which implements the Block interface"""
+
+    def __init__(self, data):
+        self._funcname = "CSCOPXY3D"
+        self._curves = data[0]
+        self._colorvector = data[1]
+        self._line_mark = data[2]
+        self._output_window_number = data[3]
+        self._output_window_position = data[4]
+        self._output_window_sizes = data[5]
+        self._xmin_xmax = data[6]
+        self._ymin_ymax = data[7]
+        self._zmin_zmax = data[8]
+        self._alpha_theta = data[9]
+        self._buffer_size = data[10]
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Number of Curves:" :self._curves,"Color(>0) or mark(<0) :" :self._colorvector,"Line or Mark Size:" :self._line_mark,"Output window number(-1 for automatic):":self._output_window_number,"Output window position:":self._output_window_position,"Output window sizes:":self._output_window_sizes, "Xmin and Xmax:": self._xmin_xmax, "Ymin and Ymax:": self._ymin_ymax,"Zmin and Zmax:" : self._zmin_zmax ,"Alpha and Theta:": self._alpha_theta,"Buffer size:": self._buffer_size}
+
+class Writeauf(Block):
+     """The WRITEAU_f Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="WRITEAU_f"
+         self._buffer_size=data[0]
+         self._swap_mode=data[1]
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Buffer Size:": self._buffer_size,"Swap Mode(0:No,1:Yes):": self._swap_mode}
+
+class Canimxy(Block):
+    """The CANIMXY Concrete Class which implements the Block interface"""
+
+    def __init__(self, data):
+        self._funcname = "CANIMXY"
+        self._curves = data[0]
+        self._colorvector = data[1]
+        self._line_mark = data[2]
+        self._output_window_number = data[3]
+        self._output_window_position = data[4]
+        self._output_window_sizes = data[5]
+        self._xmin = data[6]
+        self._xmax = data[7]
+        self._ymin = data[8]
+        self._ymax = data[9]
+        self._buffer_size = data[10]
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Number of Curves:" :self._curves,"Color(>0) or mark(<0) :" :self._colorvector,"Line or Mark Size:" :self._line_mark,"Output window number(-1 for automatic):":self._output_window_number,"Output window position:":self._output_window_position,"Output window sizes:":self._output_window_sizes, "Xmin:": self._xmin, "Xmax:": self._xmax,"Ymin:" : self._ymin ,"Ymax:": self._ymax,"Buffer size:": self._buffer_size}
+
+class Cmat3d(Block):
+     """The CMAT3D Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="CMAT3D"
+         self._bvectorx=data[0]
+         self._bvectory=data[1]
+         self._color_map=data[2]
+         self._zmin=data[3]
+         self._zmax=data[4]
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Bounds Vector X:": self._bvectorx,"Bounds Vector Y:": self._bvectory,"ColorMap:": self._color_map,"Zmin:": self._zmin,"Zmax:": self._zmax}
+
+class Writecf(Block):
+     """The WRITEC_f Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="WRITEC_f"
+         self._input_size=data[0]
+         self._output_file_name=data[1]
+         self._output_format=data[2]
+         self._buffer_size=data[3]
+         self._swap_mode=data[4]
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Input Size:": self._input_size,"Output File Name:": self._output_file_name,"Output Format:": self._output_format,"Buffer Size:": self._buffer_size,"Swap Mode(0:No, 1:Yes):": self._swap_mode}
+
+class Canimxy3d(Block):
+    """The CANIMXY3D Concrete Class which implements the Block interface"""
+
+    def __init__(self, data):
+        self._funcname = "CANIMXY3D"
+        self._curves = data[0]
+        self._colorvector = data[1]
+        self._line_mark = data[2]
+        self._output_window_number = data[3]
+        self._output_window_position = data[4]
+        self._output_window_sizes = data[5]
+        self._xmin_xmax = data[6]
+        self._ymin_ymax = data[7]
+        self._zmin_zmax = data[8]
+        self._alpha_theta = data[9]
+        self._buffer_size = data[10]
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Number of Curves:" :self._curves,"Color(>0) or mark(<0) :" :self._colorvector,"Line or Mark Size:" :self._line_mark,"Output window number(-1 for automatic):":self._output_window_number,"Output window position:":self._output_window_position,"Output window sizes:":self._output_window_sizes, "Xmin and Xmax:": self._xmin_xmax, "Ymin and Ymax:": self._ymin_ymax,"Zmin and Zmax:" : self._zmin_zmax ,"Alpha and Theta:": self._alpha_theta,"Buffer size:": self._buffer_size}
+
+class Cfscope(Block):
+    """The CFSCOPE Concrete Class which implements the Block interface"""
+
+    def __init__(self, data):
+        self._funcname = "CFSCOPE"
+        self._colorvector = data[0]
+        self._output_window_number = data[1]
+        self._output_window_position = data[2]
+        self._output_window_sizes = data[3]
+        self._ymin = data[4]
+        self._ymax = data[5]
+        self._refresh_period = data[6]
+        self._buffer_size = data[7]
+        self._links_view = data[8]
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Color or mark vector:" :self._colorvector,"Output window number:":self._output_window_number,"Output window position:":self._output_window_position,"Output window sizes:":self._output_window_sizes, "Ymin:": self._ymin, "Ymax:": self._ymax,"Refresh period:" : self._refresh_period ,"Buffer Size:": self._buffer_size,"Links to view:": self._links_view}
+
+
+
+class Cscopxy(Block):
+    """The CSCOPXY Concrete Class which implements the Block interface"""
+
+    def __init__(self, data):
+        self._funcname = "CSCOPXY"
+        self._curves = data[0]
+        self._colorvector = data[1]
+        self._line_mark = data[2]
+        self._output_window_number = data[3]
+        self._output_window_position = data[4]
+        self._output_window_sizes = data[5]
+        self._xmin = data[6]
+        self._xmax = data[7]
+        self._ymin = data[8]
+        self._ymax = data[9]
+        self._buffer_size = data[10]
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Number of Curves:" :self._curves,"Color(>0) or mark(<0) :" :self._colorvector,"Line or Mark Size:" :self._line_mark,"Output window number(-1 for automatic):":self._output_window_number,"Output window position:":self._output_window_position,"Output window sizes:":self._output_window_sizes, "Xmin:": self._xmin, "Xmax:": self._xmax,"Ymin:" : self._ymin ,"Ymax:": self._ymax,"Buffer size:": self._buffer_size}
+class Cmatview(Block):
+     """The CMATVIEW Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="CMATVIEW"
+         self._color_map=data[0]
+         self._minimum_level_range=data[1]
+         self._maximum_level_range=data[2]
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"ColorMap:": self._color_map,"Minimum level range:": self._minimum_level_range,"Maximum level range:": self._maximum_level_range}
+
+class Trashf(Block):
+    """The TRASH_f Concrete Class which implements the Block interface"""
+
+    def __init__(self,data):
+        self._funcname="TRASH_f"
+        self._parameters="No Parameters"
+
+
+    def parameters(self):
+        return {"Function Name:":self._funcname,"Parameters:":self._parameters}
+
+
+class TOWS_c(Block):
+     """The TOWS_c Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="TOWS_c"
+         self._size_buffer=data[0]
+         self._scilab_variable_name=data[1]
+         self._inherit=data[2]
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Size of buffer:": self._size_buffer,"Scilab variable name:": self._scilab_variable_name,"Inherit(no:0, yes:1):": self._inherit}
+
+class Outimpf(Block):
+     """The OUTIMPL_f Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="OUTIMPL_f"
+         self._port_num=data[0]
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Port Number:": self._port_num,"Output port size:": self._output_size,"Output port type:": self._output_type}
+
+class Outf(Block):
+     """The OUT_f Concrete Class which implements the Block interface"""
+
+     def __init__(self,data):
+         self._funcname="OUT_f"
+         self._port_num=data[0]
+
+     def parameters(self):
+        return {"Function Name:":self._funcname,"Port Number:": self._port_num,"Output port size:": self._output_size,"Output port type:": self._output_type}
