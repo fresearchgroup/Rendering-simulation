@@ -19,6 +19,12 @@ $ sudo apt install scilab
 ```bash
 $ pip install pylatex
 ```
+## Running the script
+* Clone or download this repository into your working directory.
+* Navigate to your working directory and run the following command in terminal to run the script:
+```bash
+$ python3 input_processor.py <*.xcos file path> <image file directory> <image file name> <desired output filename>
+```
 
 
 ## Contributing
@@ -38,7 +44,7 @@ See also the list of [contributors](https://github.com/fresearchgroup/Rendering-
 
 ## License
 
-This project is licensed under the GNU General Public License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](LICENSE.md) file for details
 
 
 
