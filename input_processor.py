@@ -2,12 +2,12 @@ import os
 import sys
 import subprocess
 from core.generators import *
-from pylatex import Document, Section, Itemize, Enumerate, Description, \
+from pylatex import Document, Section,Subsection, Itemize, Enumerate, Description,Tabular, \
     Command,Document,TikZ,TikZCoordinate,TikZNode,TikZDraw,TikZUserPath,TikZOptions,Figure
 import xml.etree.ElementTree as ET
-
+context= []
 def process_file(xml_filepath):
-    output_list=[]
+    output_list= []
     try:
         my_file = open(xml_filepath)
     except IOError:
@@ -24,7 +24,7 @@ def process_file(xml_filepath):
     tree = ET.parse(xml_filepath)
     root = tree.getroot()
     funcname=''
-    block_types=['BasicBlock','Summation','SuperBlock']
+    block_types=['BasicBlock','Summation','SuperBlock','EventOutBlock','Product','GroundBlock','VoltageSensorBlock']
     #generate objects one by one store it in a output list
     try:
         for data in root.findall('./mxGraphModel/root/'):
@@ -36,8 +36,11 @@ def process_file(xml_filepath):
                     if classname:
                         obj = classname(data)
                         output_list.append(obj.block)
+        for data in root.findall('./Array/add'):
+            context.append(data.get('value'))
 
         return output_list
+        return context
 
     except NameError:
         print("Block not found:", funcname)
@@ -57,14 +60,32 @@ def render(img_dir, img_name, pdf_name , output_list):
     geometry_options = {"tmargin": "1cm","lmargin":"1cm" }
     doc = Document(geometry_options=geometry_options)
     #print(output_list)
+
     with doc.create(Section("Xcos")):
         with doc.create(Figure(position='h!')) as abs_pic:
-            abs_pic.add_image(image_filename, width='120px')
-        with doc.create(Description()) as desc:
-            for i in output_list:
-                if i is not None:
-                    for key,value in i.parameters().items():
-                        desc.add_item(key,value)
+            abs_pic.add_image(image_filename, width='500px')
+            doc.append('\n')
+            doc.append('\n')
+            doc.append('\n')
+    if context:
+        with doc.create(Subsection("Context")):
+            with doc.create(Itemize()) as itemize:
+                for data in context:
+                    itemize.add_item(data)
+
+    with doc.create(Subsection("Blocks")):
+        for i in output_list:
+            if i is not None:
+                doc.append('\n')
+                doc.append('\n')
+                doc.append('\n')
+                with doc.create(Tabular('|c|c|')) as table:
+                    table.add_hline()
+                    for key, value in i.parameters().items():
+                        table.add_row(key,value)
+                        table.add_hline()
+
+
 
     doc.generate_pdf(pdf_name, clean_tex=False)
 
