@@ -2,12 +2,12 @@ import os
 import sys
 import subprocess
 from core.generators import *
-from pylatex import Document, Section,Subsection, Itemize, Enumerate, Description,Tabular, \
-    Command,Document,TikZ,TikZCoordinate,TikZNode,TikZDraw,TikZUserPath,TikZOptions,Figure
+from pylatex import Document, Section,Subsection, Itemize,Tabular,Figure
 import xml.etree.ElementTree as ET
-context= []
+
 def process_file(xml_filepath):
-    output_list= []
+    block_list= []
+    context= []
     try:
         my_file = open(xml_filepath)
     except IOError:
@@ -24,6 +24,7 @@ def process_file(xml_filepath):
     tree = ET.parse(xml_filepath)
     root = tree.getroot()
     funcname=''
+    #types of blocks to be extracted from the xcos file
     block_types=['BasicBlock','Summation','SuperBlock','EventOutBlock','Product','GroundBlock','VoltageSensorBlock']
     #generate objects one by one store it in a output list
     try:
@@ -35,12 +36,11 @@ def process_file(xml_filepath):
 
                     if classname:
                         obj = classname(data)
-                        output_list.append(obj.block)
+                        block_list.append(obj.block)
         for data in root.findall('./Array/add'):
             context.append(data.get('value'))
 
-        return output_list
-        return context
+        return [block_list,context]
 
     except NameError:
         print("Block not found:", funcname)
@@ -59,22 +59,22 @@ def render(img_dir, img_name, pdf_name , output_list):
     image_filename = os.path.join(img_dir,img_name)
     geometry_options = {"tmargin": "1cm","lmargin":"1cm" }
     doc = Document(geometry_options=geometry_options)
-    #print(output_list)
-
+    #creates image section in LaTeX
     with doc.create(Section("Xcos")):
         with doc.create(Figure(position='h!')) as abs_pic:
-            abs_pic.add_image(image_filename, width='500px')
+            abs_pic.add_image(image_filename, width='450px')
             doc.append('\n')
             doc.append('\n')
             doc.append('\n')
-    if context:
+    #creates Context section in LaTeX if context exists
+    if output_list[1]:
         with doc.create(Subsection("Context")):
             with doc.create(Itemize()) as itemize:
-                for data in context:
+                for data in output_list[1]:
                     itemize.add_item(data)
-
+    #creates Block section in LaTeX
     with doc.create(Subsection("Blocks")):
-        for i in output_list:
+        for i in output_list[0]:
             if i is not None:
                 doc.append('\n')
                 doc.append('\n')
