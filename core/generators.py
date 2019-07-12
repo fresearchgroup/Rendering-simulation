@@ -237,7 +237,7 @@ class SUM_f(BlockGenerator):
     def _generate(self):
         return Sum_f(self.data)
 
-class CLR_f(BlockGenerator):
+class CLR(BlockGenerator):
     ScilabString = "./ScilabString/data"
 
 
