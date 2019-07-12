@@ -214,7 +214,7 @@ class SATURATION(BlockGenerator):
 
 
     def _generate(self):
-        return Satur(self.data)
+        return Saturation(self.data)
 
 class INTEGRAL_m(BlockGenerator):
     ScilabString = "./ScilabString/data"
@@ -237,7 +237,7 @@ class SUM_f(BlockGenerator):
     def _generate(self):
         return Sum_f(self.data)
 
-class CLR(BlockGenerator):
+class CLR_f(BlockGenerator):
     ScilabString = "./ScilabString/data"
 
 
@@ -252,11 +252,11 @@ class MATINV(BlockGenerator):
         return Matinv(self.data)
 
 class CURV_f(BlockGenerator):
-    ScilabString = None
+    ScilabString = "./ScilabString/data"
 
 
     def _generate(self):
-        return Curvf(self.data)
+        pass
 class PuitsP(BlockGenerator):
     ScilabString = "./ScilabString/data"
 
@@ -294,17 +294,17 @@ class CMSCOPE(BlockGenerator):
     def _generate(self):
         return Cmscope(self.data)
 
-class VOLTAGESENSOR(BlockGenerator):
+class VoltageSensor(BlockGenerator):
     ScilabString= None
 
     def _generate(self):
-        return Voltagesensor(self.data)
+        return Voltagesen(self.data)
 
-class CURRENTSENSOR(BlockGenerator):
+class CurrentSensor(BlockGenerator):
     ScilabString= None
 
     def _generate(self):
-        return Currentsensor(self.data)
+        return Currentsen(self.data)
 
 class Resistor(BlockGenerator):
     ScilabString="./ScilabString/data"
@@ -318,11 +318,11 @@ class STEP_FUNCTION(BlockGenerator):
     def _generate(self):
         return Step_function(self.data)
 
-class GROUND(BlockGenerator):
+class Ground(BlockGenerator):
     ScilabString= None
 
     def _generate(self):
-        return Ground(self.data)
+        return Groundb(self.data)
 
 class Inductor(BlockGenerator):
     ScilabString = "./ScilabString/data"
@@ -471,12 +471,6 @@ class CONST_f(BlockGenerator):
     def _generate(self):
         return Const_f(self.data)
 
-class CONST(BlockGenerator):
-    ScilabString = "./ScilabString/data"
-
-
-    def _generate(self):
-        return Const(self.data)
 
 class CONST(BlockGenerator):
     ScilabString = "./ScilabString/data"
@@ -698,3 +692,846 @@ class OUTIMPL_f(BlockGenerator):
 
     def _generate(self):
         return Outimpf(self.data)
+
+class DEMUX(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Demux(self.data)
+
+class DEMUX_f(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Demuxf(self.data)
+
+class EXTRACTOR(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Extractor(self.data)
+
+class SELF_SWITCH(BlockGenerator):
+    ScilabString=None
+
+    def _generate(self):
+        return Self_switch(self.data)
+
+class ISELECT_m(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Iselectm(self.data)
+
+
+class SCALAR2VECTOR(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Scalar2Vec(self.data)
+
+
+class MUX_f(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Muxf(self.data)
+
+
+
+class M_SWITCH(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Mswitch(self.data)
+
+class FROM(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return From(self.data)
+
+class FROMMO(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return FromMo(self.data)
+
+class NRMSOM_f(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Nrmsomf(self.data)
+
+
+class RELAY_f(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Relayf(self.data)
+
+class GotoTagVisibility(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Gototagvis(self.data)
+
+class GotoTagVisibilityMO(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return GototagvisMO(self.data)
+
+class SELECT_m(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Selectm(self.data)
+
+class SWITCH_f(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Switchf(self.data)
+
+class SWITCH2_m(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Switch2m(self.data)
+
+class CVS(BlockGenerator):
+    ScilabString=None
+
+    def _generate(self):
+        return CvsB(self.data)
+
+class Capacitor(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Capacit(self.data)
+
+class ConstantVoltage(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return ConstVolt(self.data)
+
+class Diode(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Diodeb(self.data)
+
+class OpAmp(BlockGenerator):
+    ScilabString=None
+
+    def _generate(self):
+        return Opamp(self.data)
+
+
+class IdealTransformer(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return IdealTrans(self.data)
+
+
+class Gyrator(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Gyrat(self.data)
+
+class PotentialSensor(BlockGenerator):
+    ScilabString=None
+
+    def _generate(self):
+        return PotSensor(self.data)
+
+
+class VsourceAC(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return VSource(self.data)
+
+class VVsourceAC(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return VVSource(self.data)
+
+class VariableResistor(BlockGenerator):
+    ScilabString=None
+
+    def _generate(self):
+        return VarResist(self.data)
+
+class NMOS(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Nmos(self.data)
+
+class PMOS(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Pmos(self.data)
+
+class PNP(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Pnpb(self.data)
+
+class NPN(BlockGenerator):
+    ScilabString="./ScilabString/data"
+
+    def _generate(self):
+        return Npnb(self.data)
+
+
+class BACKLASH(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Backlash(self.data)
+
+
+class DEADBAND(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Backlash(self.data)
+
+class DELAYV_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Delayv_f(self.data)
+
+class HYSTHERESIS(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Hystheresis(self.data)
+
+class RATELIMITER(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Ratelimiter(self.data)
+
+class QUANT_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Quant_f(self.data)
+'''
+class SATURATION(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Saturation(self.data)
+'''
+class AUTOMAT(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Automat(self.data)
+
+
+class DOLLAR_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Dollar_f(self.data)
+
+class DOLLAR_m(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Dollar_m(self.data)
+
+class DOLLAR(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Dollar(self.data)
+
+class REGISTER_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Delay_f(self.data)
+
+class DLSS(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Dlss(self.data)
+
+class TCLSS(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Tclss(self.data)
+
+class DLR(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Dlr(self.data)
+
+class REGISTER(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Register(self.data)
+
+class DLRADAPT_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Dlradapt_f(self.data)
+
+class SAMPHOLD_m(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Samphold_m(self.data)
+
+class DELAY_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Delay_f(self.data)
+
+class INTRPLBLK_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Interp(self.data)
+
+
+class INTRP2BLK_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Interp2(self.data)
+
+class LOOKUP_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Lookup_f(self.data)
+
+class ANDLOG_f(BlockGenerator):
+    ScilabString = None
+
+
+    def _generate(self):
+        return Lookup_f(self.data)
+
+class EVTVARDLY(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Evtvardly(self.data)
+
+class EVTGEN_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Evtgen_f(self.data)
+
+class VirtualCLK0(BlockGenerator):
+    ScilabString = None
+
+
+    def _generate(self):
+        return Virtualclock0(self.data)
+
+class ANDBLK(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Andblk(self.data)
+
+class Extract_Activation(BlockGenerator):
+    ScilabString = None
+
+
+    def _generate(self):
+        return Extract_activation(self.data)
+
+class CLKOUTV_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Clkoutv_f(self.data)
+
+class CLKGOTO(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Clkgoto(self.data)
+
+class M_freq(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Mfreq(self.data)
+
+class END_c(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return End(self.data)
+
+class ENDBLK(BlockGenerator):
+    ScilabString = "./SuperBlockDiagram/mxGraphModel/root/BasicBlock/ScilabString/data"
+
+
+    def _generate(self):
+        return Endblk(self.data)
+
+class freq_div(BlockGenerator):
+    ScilabString = "./SuperBlockDiagram/mxGraphModel/root/BasicBlock/ScilabString/data"
+
+
+    def _generate(self):
+        return freqdiv(self.data)
+
+class MCLOCK_f(BlockGenerator):
+    ScilabString = "./SuperBlockDiagram/mxGraphModel/root/BasicBlock/ScilabString/data"
+
+
+    def _generate(self):
+        return Mclock_f(self.data)
+
+class HALT_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Halt_f(self.data)
+
+class MFCLCK_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Mfclck_f(self.data)
+
+class ESELECT_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Eselect_f(self.data)
+
+class CLKFROM(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Clkfrom(self.data)
+
+
+
+class EDGE_TRIGGER(BlockGenerator):
+    ScilabString = "./SuperBlockDiagram/mxGraphModel/root/BasicBlock/ScilabString/data"
+
+
+    def _generate(self):
+        return Edge_trigger(self.data)
+
+class CLKGotoTagVisibility(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Clkgototagvisiblity(self.data)
+
+class EVTDLY_c(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Evtdly_c(self.data)
+
+class SINBLK_f(BlockGenerator):
+    ScilabString = None
+
+
+    def _generate(self):
+        return Sinblk_f(self.data)
+'''
+class GAINBLK_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Gainblkf(self.data)
+'''
+
+class GAIN_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Gain_f(self.data)
+
+class PROD_f(BlockGenerator):
+    ScilabString = None
+
+
+    def _generate(self):
+        return Prod_f(self.data)
+
+class COSBLK_f(BlockGenerator):
+    ScilabString = None
+
+
+    def _generate(self):
+        return Cosblk_f(self.data)
+
+class TANBLK_f(BlockGenerator):
+    ScilabString = None
+
+
+    def _generate(self):
+        return Tanblk_f(self.data)
+
+class MAX_f(BlockGenerator):
+    ScilabString = None
+
+
+    def _generate(self):
+        return Max_f(self.data)
+
+
+class MIN_f(BlockGenerator):
+    ScilabString = None
+
+
+    def _generate(self):
+        return Min_f(self.data)
+'''
+class MIN_f(BlockGenerator):
+    ScilabString = None
+
+
+    def _generate(self):
+        return Min_f(self.data)
+'''
+
+class PRODUCT(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Product(self.data)
+
+class SIGNUM(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Signum(self.data)
+
+class ABS_VALUE(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Absvalue(self.data)
+
+class INVBLK(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Invblk(self.data)
+'''
+class TANBLK_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Tanblk_f(self.data)
+'''
+
+class LOGBLK_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Logblk_f(self.data)
+
+class MAXMIN(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Maxmin(self.data)
+
+
+class MATZREIM(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Matzreim(self.data)
+
+class SQRT(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Sqrt(self.data)
+
+class RELATIONALOP(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Relationalop(self.data)
+
+class POWBLK_f(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Powblk_f(self.data)
+
+class EXPBLK_m(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Expblk_m(self.data)
+
+class TrigFun(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Trigfun(self.data)
+
+class MATMAGPHI(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Matmagphi(self.data)
+
+class DLATCH(BlockGenerator):
+    ScilabString = None
+
+
+    def _generate(self):
+        return Dlatch(self.data)
+
+class MATRESH(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Matresh(self.data)
+
+class MATSING(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Matsing(self.data)
+
+class DFLIPFLOP(BlockGenerator):
+    ScilabString = None
+
+
+    def _generate(self):
+        return Dflipflop(self.data)
+
+
+class MATPINV(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Matpinv(self.data)
+
+class BITCLEAR(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Bitclear(self.data)
+
+class BITSET(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Bitset(self.data)
+
+class EXTTRI(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Exttri(self.data)
+
+class MATBKSL(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Matbksl(self.data)
+
+class LOGICAL_OP(BlockGenerator):
+    ScilabString = "./mxGraphModel/root/BasicBlock/SuperBlockDiagram/mxGraphModel/root/BasicBlock/ScilabString/data"
+
+
+    def _generate(self):
+        return Logical_op(self.data)
+
+class MATZCONJ(BlockGenerator):
+    ScilabString = None
+
+
+    def _generate(self):
+        return Matzconj(self.data)
+
+class MATDIAG(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Matdiag(self.data)
+
+class MATDIV(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Matdiv(self.data)
+
+class MATDET(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Matdet(self.data)
+
+class MATLU(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Matlu(self.data)
+
+class MATEXPM(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Matexpm(self.data)
+
+class INTMUL(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Intmul(self.data)
+
+class RICC(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Ricc(self.data)
+
+class CONVERT(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Convert(self.data)
+
+class CUMSUM(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Cumsum(self.data)
+
+class MATSUM(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Matsum(self.data)
+
+class SUBMAT(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Submat(self.data)
+
+class EXTRACTBITS(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Extractbits(self.data)
+
+
+class SHIFT(BlockGenerator):
+    ScilabString = "./ScilabString/data"
+
+
+    def _generate(self):
+        return Shift(self.data)
+
+class DERIV(BlockGenerator):
+    ScilabString = None
+
+
+    def _generate(self):
+        return Deriv(self.data)
