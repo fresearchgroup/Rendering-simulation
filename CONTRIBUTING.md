@@ -17,7 +17,7 @@ Xcos blocks which may get introduced with newer versions of Scilab can be easily
 In short, when you submit code changes, your submissions are understood to be under the same [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/) that covers the project. Feel free to contact the maintainers if that's a concern.
 
 ## Report bugs using Github's [issues](https://github.com/fresearchgroup/Rendering-simulation/issues)
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](); it's that easy.
+We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/fresearchgroup/Rendering-simulation/issues); it's that easy.
 
 ## License
 By contributing, you agree that your contributions will be licensed under its GNU GPLv3 License.
