@@ -29,7 +29,7 @@ $ python3 input_processor.py <*.xcos file path> <image file directory> <image fi
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/fresearchgroup/Rendering-simulation/) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/fresearchgroup/Rendering-simulation/blob/master/CONTRIBUTING.md) for details on contributing.
 
 ## Authors
 
