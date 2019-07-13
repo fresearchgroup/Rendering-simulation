@@ -23,7 +23,7 @@ $ pip install pylatex
 * Clone or download this repository into your working directory.
 * Navigate to your working directory and run the following command in terminal to run the script:
 ```bash
-$ python3 input_processor.py <*.xcos file path> <image file directory> <image file name> <desired output filename>
+$ python3 input_processor.py <*.xcos file path> <*.png image file path>
 ```
 
 
