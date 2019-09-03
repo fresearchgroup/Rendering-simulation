@@ -1,7 +1,7 @@
 # Rendering-simulation
 ## Displaying XCos simulation in LaTeX
 
-Xcos is a Scilab tool. It is used to model and simulate hybrid dynamic systems. It has a graphical editor in which one can drag and drop the models and connect the blocks. Every block has predefined functions, properties, and parameters. The tool comes along with one limitation that is one can only view the simulation and its values in the tool's GUI. Currently, there is no automated way of capturing the blocks,the connected models and their simulation parameters in a document. The aim of this project is to capture these simulations and represent them in a LaTeX file. 
+Xcos is a Scilab tool. It is used to model and simulate hybrid dynamic systems. It has a graphical editor in which one can drag and drop the models and connect the blocks. Every block has predefined functions, properties, and parameters. The tool comes along with one limitation that is one can only view the simulation and its values in the tool's GUI. Currently, there is no automated way of capturing the blocks,the connected models and their simulation parameters in a document. The aim of this project is to capture these simulations and represent them in a LaTeX file. The detailed documentation can be found [here](https://static.fossee.in/fossee/fellowship2019/FOSSEE-Fellowship-reports-2019/Xcos/Rendering_Xcos_Simulation_Output_in_LaTeX.pdf).
 
 ## Getting Started
 ## Requirements
